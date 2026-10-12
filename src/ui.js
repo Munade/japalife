@@ -38,7 +38,7 @@ function render(){
   const acts=ACTS.filter(a=>{const at=Array.isArray(a.at)?a.at:[a.at];return at.includes(v.type)}).concat(gigActs());
   const rows=acts.filter(a=>v.type==='home'||isOpen(v.type)||a.id==='vloo'&&false).map(actRow);
   let html='';
-  if(v.type==='home'){html+=`<button class="act go" data-buy><span class="main"><span class="lbl">Buy furniture</span><span class="sub">${S.furn.filter(k=>!FURN[k].start).length} items bought${CITIES[S.city].homes.find(h=>h.id===S.home).shared?' · shared room fits 4':''}</span></span><span class="meta"><b>Shop</b></span></button>`}
+  if(v.type==='home'){ensureItems();const n=S.items.length+S.store.length+S.acc.length;html+=`<div class="row2"><button class="act go" data-buy><span class="main"><span class="lbl">Buy furniture</span><span class="sub">${n} items · ${'★'.repeat(homeStars())}${'☆'.repeat(5-homeStars())}</span></span></button><button class="act ${DEC.on?'go':''}" data-decorate><span class="main"><span class="lbl">${DEC.on?'Done decorating':'Decorate'}</span><span class="sub">${DEC.on?'Tap an item, then move it':'Move, turn, store or sell'}</span></span></button></div>${DEC.on?decPanel():''}`}
   else html+=`<button class="act" data-gohome><span class="main"><span class="lbl">Go home</span><span class="sub">${travelOptions('home').map(o=>`${o.label} ${o.cost?gbp2(o.cost):'free'}`).join(' · ')}</span></span><span class="meta"><b>Home</b></span></button>`;
   if(v.type!=='home'&&!isOpen(v.type))html+=`<div class="card" style="padding:12px 14px;font-size:13.5px"><b>Closed right now.</b> ${hoursText(v.type)}</div>`;
   const gigRows=rows.filter(r=>r.includes('data-act="gig-'));html+=gigRows.join('')+rows.filter(r=>!r.includes('data-act="gig-')).join('');
@@ -59,7 +59,7 @@ function actRow(a){
   return `<button class="act ${off?'off':''} ${a.menu?'go':''}" data-act="${a.id}"><span class="main"><span class="lbl">${esc(val(a.label))}</span><span class="sub">${esc(why||(poor?'Not enough money':val(a.sub)||''))}</span></span><span class="meta">${right}${a.menu||a.invite?'':dur}</span></button>`;
 }
 function doAct(id){
-  if(busy||S.over||S.queue.length)return;
+  if(busy||S.over||S.queue.length)return;if(DEC.on){DEC.on=false;DEC.sel=null}
   const a=ACTS.concat(gigActs()).find(x=>x.id===id);if(!a)return;if(a.books){openSheet({type:'phone',app:'biz'});return}const why=a.cond&&a.cond();if(why){toast(why);return}
   if(a.menu){openSheet({type:'menu'});return}
   if(a.invite){openSheet({type:'invite',pick:[]});return}
@@ -69,12 +69,13 @@ function doAct(id){
     advance(val(a.h),{sleep:a.sleep,away:a.away});
     if(!S.over){log(a.run(),a.earn?'good':'');
       if(S.needs.energy<=0){log('You passed out from tiredness and slept for 6 hours.','bad');advance(6,{sleep:true})}}
-    checkGoals();save();busy=false;render();
+    anim.tvOn=false;anim.bbq=false;checkGoals();save();busy=false;render();
   };
   busy=true;anim.emote=a.emote||'✨';anim.emoteUntil=performance.now()+(reduceMotion?400:900);
   if(here().type==='home'){
-    const item=val(a.item);const spot=item&&FURN[item]?.spot||SPOT[a.spot||'idle'];
-    anim.tx=spot[0];anim.ty=spot[1];
+    const item=val(a.item);const sp=a.spot;
+    const spot=item?spotForTag(item):sp==='loo'?spotForTag('toilet'):sp==='shower'?spotForTag('bath'):sp==='washer'?spotForTag('washer'):sp==='door'?doorPos():idleSpot();
+    anim.path=cellPath([anim.x,anim.y],spot);anim.tx=spot[0];anim.ty=spot[1];if(a.tv)anim.tvOn=true;if(a.id==='bbqparty')anim.bbq=true;
     anim.onArrive=()=>{anim.emoteUntil=performance.now()+700;setTimeout(go,reduceMotion?50:650)};
   }else setTimeout(go,reduceMotion?50:650);
   $('app').classList.add('busy');
@@ -89,7 +90,7 @@ function renderSheet(){
   if(!sheet){el.innerHTML='';return}
   if(sheet.type==='map'&&((sheet.real&&lmap&&$('lmap'))||(!sheet.real&&$('citycv')&&CM&&CM.city===S.city))){const vi=$('vinfo');if(vi&&!CMV.trip)vi.innerHTML=mapInfo();return}
   let body='',cls='panel';
-  if(['restart','liveok','liveperson','bizsell'].includes(sheet.type)){el.innerHTML='';return}
+  if(['restart','liveok','liveperson','bizsell','movehome'].includes(sheet.type)){el.innerHTML='';return}
   if(sheet.type==='map')body=mapSheet();
   if(sheet.type==='phone'){cls='panel phone';body=phoneSheet()}
   if(sheet.type==='me')body=meSheet();
@@ -189,7 +190,7 @@ function phoneSheet(){
   const app=sheet.app;
   if(!app){
     const u=unread();
-    const apps=[['wa','WhatsApp','#25A866','W',u],['bank','Bank','#2B3A8C','£'],['remit','Send home','#C24E36','₦'],['jobs','Jobs','#C9921B','J'],['gigs','Gigs','#B3261E','G',S.gigs?S.gigs.acc.length:0],['biz','Business','#C9921B','₿'],['live','Live chat','#0E7C86','●'],['rich','Rich list','#6A2C91','#'],['goals','Goals','#08774C','✓']];
+    const apps=[['wa','WhatsApp','#25A866','W',u],['bank','Bank','#2B3A8C','£'],['remit','Send home','#C24E36','₦'],['jobs','Jobs','#C9921B','J'],['gigs','Gigs','#B3261E','G',S.gigs?S.gigs.acc.length:0],['biz','Business','#C9921B','₿'],['homes','Homes','#2B5BA8','⌂'],['live','Live chat','#0E7C86','●'],['rich','Rich list','#6A2C91','#'],['goals','Goals','#08774C','✓']];
     return hd(hhmm(S.hour),`${DAYS[dow()]}, Day ${S.day} · ${S.weather}`)+`<div class="apps">${apps.map(([id,l,c,g,b])=>`<button class="app" data-app="${id}"><i style="background:${c}">${g}</i>${l}${b?`<span class="badge">${b}</span>`:''}</button>`).join('')}</div>`;
   }
   const back=`<button class="pbtn" data-app="" style="align-self:flex-start;padding:6px 12px">← Home screen</button>`;
@@ -231,6 +232,9 @@ function phoneSheet(){
     <div class="apps" style="grid-template-columns:repeat(2,1fr);gap:8px"><button class="pbtn" data-bizmkt>${Z.mkt?`Marketing: ${Z.mkt} days left`:`Marketing push · ${gbp(Z.type==='lounge'?300:60)}`}</button><button class="pbtn" data-bizup ${Z.lvl>=3?'disabled':''}>${Z.lvl>=3?'Fully upgraded':`Upgrade · ${gbp(B.cost*.5*Z.lvl)}`}</button></div>
     <button class="pbtn" data-bizsell>Sell the business for ${gbp(bizValue())}</button>`;
   }
+  if(app==='homes'){const cur=homeDef();const list=CITIES[S.city].homes.filter(h=>!h.hotel);
+    return hd('Homes',`To rent in ${CITIES[S.city].name}`)+back+`<div style="font-size:13px;opacity:.8">Deposits are 5 weeks' rent, protected in a deposit scheme and returned when you move. A man with a van costs £80.</div>${list.map(h=>{const L=LAYOUTS[h.layout];const here_=h.id===cur.id;const dep=h.rent*5;const bills=homeBills(h);
+      return `<div class="pcard"><b style="font-size:16px">${esc(h.name)}${here_?' · you live here':''}</b><span style="font-size:13px;opacity:.85">${L.rooms.filter(r=>r.kind!=='hall').map(r=>r.n).join(' · ')}</span><span style="font-family:var(--f-mono);font-size:13px">${gbp(h.rent)}/week (about ${gbp(h.rent*52/12)}/month) · deposit ${gbp(dep)}${bills?` · bills ${gbp(bills)}/week`:' · bills included'}</span><span style="font-size:12.5px;opacity:.75">${{room:'Shared kitchen and bathroom. Bills included.',studio:'Your own kitchenette and shower room.',flat:'Separate bedroom, open-plan kitchen, washing machine.',house:'Two bedrooms, kitchen diner, back garden with a washing line.'}[h.layout]}</span>${here_?'':`<button class="pbtn g" data-movehome="${h.id}">Move here</button>`}</div>`}).join('')}`}
   if(app==='live')return hd('Live chat','Real players in your city')+back+`<div id="phonelive" style="color:var(--ink)">${liveBox()}</div>`;
   if(app==='rich'){const l=richList();return hd('Japa rich list')+back+`<div style="font-size:13px;opacity:.8">Net worth: cash minus debts, plus half the value of your furniture.</div><ol class="rich">${l.map((r,i)=>`<li class="${r.me?'me':''}"><span class="rk">${i+1}</span><span class="nm">${esc(r.n)}</span><span class="w">${gbp(r.w)}</span></li>`).join('')}</ol>`}
   if(app==='goals'){const p=dreamProgress();return hd('Goals')+back+`<div class="pcard"><span class="lbl">Lifetime dream</span><b style="font-size:17px">${DREAMS[S.dream].name}</b><span style="font-size:13px;opacity:.85">${DREAMS[S.dream].d}</span><div class="bar" style="background:#ffffff22"><i style="width:${Math.round(p*100)}%;background:#F2B705"></i></div></div><div class="pcard"><ul class="goals" style="color:var(--phone-ink)">${GOALS.map(([id,l])=>`<li class="${S.goals[id]?'done':''}"><span class="tick">${S.goals[id]?'✓':''}</span><span>${l}</span></li>`).join('')}</ul></div>`}
@@ -245,14 +249,24 @@ function meSheet(){
     <div class="card"><h2>Dream: ${DREAMS[S.dream].name}</h2><div style="font-size:13px;color:var(--muted)">${DREAMS[S.dream].d}</div><div class="bar" style="height:10px;margin-top:8px"><i style="width:${Math.round(p*100)}%;background:var(--danfo)"></i></div></div>
     <div class="card"><h2>Skills</h2><div class="needs" style="border:0;padding:0">${Object.entries(S.skills).map(([k,v])=>`<div class="need"><div class="row"><span>${k[0].toUpperCase()+k.slice(1)}</span><span>${v.toFixed(1)}/10</span></div><div class="bar"><i style="width:${v*10}%;background:var(--danfo)"></i></div></div>`).join('')}</div></div>
     <div class="card"><h2>People</h2>${rels.length?`<div style="display:grid;gap:6px">${rels.map(id=>`<button class="person" data-npc="${id}" style="border-radius:12px;justify-content:flex-start"><img class="face" src="${face(id)}" alt=""><span style="flex:1;text-align:left">${NPCS[id].name}<small>${relLabel(id)} · ${Math.round(S.npcs[id].rel)}</small></span></button>`).join('')}</div>`:'<div style="font-size:13.5px;color:var(--muted)">Go out and meet people. Tap them to talk.</div>'}</div>
-    <div class="card"><h2>Life so far</h2><dl class="kv">${S.visaLabel?`<dt>Status</dt><dd>${esc(S.visaLabel)}</dd>`:''}<dt>Days played</dt><dd>${S.day}</dd><dt>Dishes tried</dt><dd>${Object.keys(S.dishes).filter(k=>DISHES[k]).length}</dd><dt>Dinners hosted</dt><dd>${S.hosted||0}</dd><dt>Sent home</dt><dd>${ngn(S.sentHome)}</dd><dt>Restaurants tried</dt><dd>${Object.keys(S.visited).filter(k=>S.visited[k]>0).length}</dd><dt>Rich list rank</dt><dd>#${myRank()}</dd></dl></div>
+    <div class="card"><h2>Life so far</h2><dl class="kv">${S.visaLabel?`<dt>Status</dt><dd>${esc(S.visaLabel)}</dd>`:''}<dt>Home</dt><dd>${esc(homeDef().name)} ${'★'.repeat(homeStars())}</dd><dt>Days played</dt><dd>${S.day}</dd><dt>Dishes tried</dt><dd>${Object.keys(S.dishes).filter(k=>DISHES[k]).length}</dd><dt>Dinners hosted</dt><dd>${S.hosted||0}</dd><dt>Sent home</dt><dd>${ngn(S.sentHome)}</dd><dt>Restaurants tried</dt><dd>${Object.keys(S.visited).filter(k=>S.visited[k]>0).length}</dd><dt>Rich list rank</dt><dd>#${myRank()}</dd></dl></div>
     <button class="ghost" data-restart-ask>Start a new life</button>`;
 }
 function buySheet(){
-  const shared=CITIES[S.city].homes.find(h=>h.id===S.home).shared;const bought=S.furn.filter(k=>!FURN[k].start).length;const full=shared&&bought>=4;
-  const list=Object.entries(FURN).filter(([k,f])=>!f.start).map(([k,f])=>{const owned=own(k);const dis=owned||S.money<f.price||(full&&!owned);
-    return `<button class="act ${dis&&!owned?'off':''}" data-furn="${k}" ${owned?'disabled':''}><span class="main"><span class="lbl">${f.name}${owned?' ✓':''}</span><span class="sub">${owned?'In your flat':full?'No space in a shared room':esc(f.d)}</span></span><span class="meta"><b>${owned?'Owned':gbp(f.price)}</b></span></button>`}).join('');
-  return hd('Buy furniture',`${gbp(S.money)} available${shared?` · ${bought}/4 slots`:''}`)+`<div class="acts">${list}</div>`;
+  ensureItems();const cat=sheet.cat||'Bedroom';const counts={};[...S.items,...S.store].forEach(i=>counts[i.k]=(counts[i.k]||0)+1);S.acc.forEach(k=>counts[k]=(counts[k]||0)+1);
+  const L=LAY();const list=Object.entries(ITEMS).filter(([k,I])=>I.c===cat&&I.p>0).map(([k,I])=>{const n=counts[k]||0;const poor=S.money<I.p;const garden=I.room==='garden'&&!L.garden;
+    const fx=Object.entries(I.fx||{}).filter(([q,v])=>v>0&&q!=='amb').map(([q])=>({comfort:'better sleep',fun:'more fun at home',study:'faster study',cook:'better cooking',homesick:'less homesick',fitness:'home workouts'}[q])).join(', ');
+    return `<button class="act ${poor?'off':''}" data-furn="${k}"><span class="main"><span class="lbl">${I.n}${n?` <span style="color:var(--green)">· own ${n}</span>`:''}</span><span class="sub">${esc(I.d||fx||(I.sz?`${I.sz[0]}×${I.sz[1]}m`:''))}${garden?' · needs a garden to place':''}</span></span><span class="meta"><b>${gbp(I.p)}</b></span></button>`}).join('');
+  return hd('Buy furniture',`${gbp(S.money)} · ${L.name}${L.hotel?' · hotel: items go to storage':''}`)+`<div class="opts">${CAT.map(c=>`<button class="opt ${c===cat?'sel':''}" data-cat="${c}">${c}</button>`).join('')}</div><div style="font-size:12.5px;color:var(--muted)">Buy as many as you like. Items place themselves in the right room. If there's no space they go into storage.</div><div class="acts">${list}</div>`;
+}
+function decPanel(){
+  const sel=decSelected();const placed=S.items.filter(i=>ITEMS[i.k].p>0||i.k==='mattress'||i.k==='chair');
+  const chip=(it,stored)=>`<button class="person ${DEC.sel===it.u?'on':''}" data-dsel="${it.u}" style="padding:6px 12px"><span>${esc(ITEMS[it.k].n)}${stored?'<small>In storage</small>':''}</span></button>`;
+  return `<div class="card" style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0">Decorate</h2>
+   <div class="people" style="flex-wrap:wrap">${placed.map(i=>chip(i,false)).join('')}${S.store.map(i=>chip(i,true)).join('')}</div>
+   ${sel?(S.store.includes(sel)?`<div class="row2"><button class="act go" data-dplace="${sel.u}"><span class="main"><span class="lbl">Place ${esc(ITEMS[sel.k].n)}</span></span></button><button class="act" data-dsell><span class="main"><span class="lbl">Sell for ${gbp(ITEMS[sel.k].p*.5)}</span></span></button></div>`
+     :`<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">${[['←',-1,0],['→',1,0],['↑',0,-1],['↓',0,1]].map(([l,x,y])=>`<button class="opt" data-dmove="${x},${y}" style="font-size:18px">${l}</button>`).join('')}</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px"><button class="opt" data-drot>Turn</button><button class="opt" data-dstore>Store</button><button class="opt" data-dsell>Sell ${gbp(ITEMS[sel.k].p*.5)}</button></div><div style="font-size:12px;color:var(--muted)">Arrows move along the floor. You can also tap the floor in the picture to move it there.</div>`)
+     :'<div style="font-size:13px;color:var(--muted)">Tap an item here or in the picture to select it.</div>'}</div>`;
 }
 function npcSheet(){
   const id=sheet.id,N=NPCS[id],n=S.npcs[id];const at=peopleAt(here()).includes(id);
@@ -273,6 +287,7 @@ function renderModal(){
   if(S.over){ov.innerHTML=`<div class="overlay"><div class="modal"><span class="kick">Day ${S.day}</span><h3>Evicted.</h3><p>Three missed rent payments and the landlord changed the locks. ${esc(S.name)} is now on a friend's sofa.</p><p>You sent ${ngn(S.sentHome)} home and tried ${Object.keys(S.dishes).length} dishes.</p><button class="go" data-restart>Start a new life</button></div></div>`;return}
   if(sheet?.type==='liveok'){ov.innerHTML=`<div class="overlay"><div class="modal"><span class="kick">Live chat</span><h3>Chat with real players</h3><p>Messages go to everyone in the same place in your city. They are public and kept for about 12 hours.</p><p><b>You must be 18 or over.</b> Be kind. Never share your address, phone number, or bank details. Mute anyone who bothers you.</p><button class="go" data-live-yes>I'm 18+ and I agree</button><button class="ghost" data-live-no>Not now</button></div></div>`;return}
   if(sheet?.type==='liveperson'){ov.innerHTML=`<div class="overlay"><div class="modal"><span class="kick">Player</span><h3>${esc(sheet.name)}</h3><p>A real person playing Japa Life near you.</p><button class="choice" data-mute>Mute ${esc(sheet.name)}</button><button class="ghost" data-live-no>Close</button></div></div>`;return}
+  if(sheet?.type==='movehome'){const h=CITIES[S.city].homes.find(x=>x.id===sheet.id),old=homeDef();const cost=h.rent*5+h.rent+80-(old.rent||0)*5;ov.innerHTML=`<div class="overlay"><div class="modal"><span class="kick">Moving home</span><h3>${esc(h.name)}</h3><p>New deposit ${gbp(h.rent*5)} + first week ${gbp(h.rent)} + van £80${old.rent?`, minus your old deposit back (${gbp(old.rent*5)})`:''}.</p><p><b>${cost>=0?'You pay':'You get back'} ${gbp(Math.abs(cost))} today.</b> Rent ${gbp(h.rent)} a week from Monday${homeBills(h)?`, plus ${gbp(homeBills(h))} a week council tax and bills`:''}.</p><button class="go" data-move-yes>Move in</button><button class="ghost" data-live-no>Not now</button></div></div>`;return}
   if(sheet?.type==='bizsell'){ov.innerHTML=`<div class="overlay"><div class="modal"><h3>Sell ${esc(S.biz.name)}?</h3><p>You'll get ${gbp(bizValue())} and the business closes for good.</p><button class="choice" data-bizsell-yes>Sell it</button><button class="ghost" data-live-no>Keep it</button></div></div>`;return}
   if(sheet?.type==='restart'){ov.innerHTML=`<div class="overlay"><div class="modal"><h3>Start a new life?</h3><p>${esc(S.name)}'s progress will be lost.</p><button class="choice" data-restart>Yes, start again</button><button class="choice" data-cancel>Keep playing</button></div></div>`;return}
   const e=S.queue.length&&EVENTS.find(x=>x.id===S.queue[0]);
@@ -357,10 +372,17 @@ document.addEventListener('click',e=>{
   if(d.mreal!==undefined){sheet.real=d.mreal==='1';CMV.cv=null;render();return}
   if(d.npc){openSheet({type:'npc',id:d.npc});return}
   if(d.npcact){doNpc(sheet.id,d.npcact);return}
-  if(d.furn){if(inHotel()){toast("You can't furnish a hotel room.");return}const f=FURN[d.furn];const shared=CITIES[S.city].homes.find(h=>h.id===S.home).shared;
-    if(shared&&S.furn.filter(k=>!FURN[k].start).length>=4){toast('No space left in a shared room.');return}
-    if(S.money<f.price){toast(`You need ${gbp(f.price)}.`);return}
-    spend(f.price,f.name);if(f.replaces)S.furn=S.furn.filter(k=>k!==f.replaces);S.furn.push(d.furn);log(`Bought: ${f.name}.`,'good');checkGoals();save();render();return}
+  if(d.furn){const I=ITEMS[d.furn];if(S.money<I.p){toast(`You need ${gbp(I.p)}.`);return}spend(I.p,I.n);const r=giveItem(d.furn);toast(r==='acc'?`${I.n} added.`:r==='placed'?`${I.n} placed in your home.`:`${I.n} went into storage. No space right now.`);log(`Bought: ${I.n}.`,'good');checkGoals();save();render();return}
+  if(d.cat){sheet.cat=d.cat;render();return}
+  if(t.hasAttribute('data-decorate')){DEC.on=!DEC.on;DEC.sel=null;render();return}
+  if(d.dsel){DEC.sel=+d.dsel;render();return}
+  if(d.dmove){const [x,y]=d.dmove.split(',').map(Number);decMove(x,y);save();render();return}
+  if(t.hasAttribute('data-drot')){decRotate();save();render();return}
+  if(t.hasAttribute('data-dstore')){decStore();save();render();return}
+  if(t.hasAttribute('data-dsell')){decSell();save();render();return}
+  if(d.dplace){decPlace(+d.dplace);save();render();return}
+  if(d.movehome){sheet={type:'movehome',id:d.movehome,back:sheet};render();return}
+  if(t.hasAttribute('data-move-yes')){moveHome(sheet.id);sheet=null;checkGoals();save();render();window.scrollTo({top:0});return}
   if(d.app!==undefined){sheet.app=d.app||null;sheet.thread=null;render();return}
   if(d.thread!==undefined){sheet.thread=d.thread||null;save();render();return}
   if(d.reply!==undefined){replyWA(sheet.thread,+d.reply);checkGoals();save();render();return}
@@ -398,6 +420,7 @@ document.addEventListener('click',e=>{
   if(t.hasAttribute('data-cancel')){sheet=null;render();return}
   if(t.hasAttribute('data-restart')){S=null;sheet=null;try{localStorage.removeItem(KEY)}catch(e){};$('overlay').innerHTML='';render();return}
 });
+document.addEventListener('pointerup',e=>{if(!DEC.on||e.target.id!=='cv'||S.at!=='home')return;const r=e.target.getBoundingClientRect();decTap((e.clientX-r.left)/r.width*360,(e.clientY-r.top)/r.height*230)});
 document.addEventListener('submit',e=>{if(e.target.matches('[data-liveform]')){e.preventDefault();const i=$('livein');liveSend(i.value);i.value=''}});
 document.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-pin]')){e.preventDefault();e.target.dispatchEvent(new MouseEvent('click',{bubbles:true}))}if(e.key==='Escape'&&sheet){closeSheet()}});
 document.addEventListener('input',e=>{if(e.target.id==='nm'&&C)C.name=e.target.value.slice(0,16)});

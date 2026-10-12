@@ -11,7 +11,7 @@ const val=x=>typeof x==='function'?x():x;
 const dow=()=>(S.day-1)%7;
 const hhmm=h=>{const m=Math.round(h*60)%1440;return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0')};
 const has=t=>S.traits.includes(t);
-const own=k=>S.furn.includes(k);
+const own=k=>{if(!S.items&&typeof ensureItems==='function')ensureItems();if(!S.items)return (S.furn||[]).includes(k);if(k==='bed')return homeFx().comfort>=2;if(k==='mattress')return true;if(k==='rug')return S.items.some(i=>ITEMS[i.k].st==='rug');return ownTag(k)};
 const hash=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return (h>>>0)/4294967295};
 const price=c=>r2(c*(has('pincher')?.85:1));
 function add(k,v){ if(k in S.needs) S.needs[k]=clamp(S.needs[k]+v); else S[k]=clamp(S[k]+v); }
@@ -112,18 +112,19 @@ function advance(h,opt={}){
     const n=S.needs,k=.5,sl=opt.sleep,night=S.hour<5||S.hour>=23;
     if(opt.away){S.hour+=k;if(S.hour>=24){S.hour-=24;newDay()}continue}
     n.hunger=clamp(n.hunger-(sl?1.5:4)*k);
-    let eg=sl?(own('bed')?16:13):(night&&!has('nightowl')?-5:-3);
+    const HF=(S.items&&typeof homeFx==='function'&&S.at==='home')?homeFx():{comfort:1,fun:0,homesick:0};
+    let eg=sl?(12+HF.comfort*1.6):(night&&!has('nightowl')?-5:-3);
     if(sl&&S.weather==='Cold snap'&&!own('blanket'))eg*=.75;
     n.energy=clamp(n.energy+eg*k);
     n.bladder=clamp(n.bladder-(sl?2:6)*k);
     n.hygiene=clamp(n.hygiene-(sl?.8:2)*k);
     let fd=sl?.3:2*(has('hustler')?1.25:1)*(S.weather==='Cold snap'&&!S.flags.coat?1.3:1);
-    if(S.at==='home'&&own('plants'))fd*=.8;
+    if(S.at==='home')fd*=1-Math.min(.45,HF.fun*.06);
     n.fun=clamp(n.fun-fd*k);
     let sd=sl?.3:1.5*(has('homebody')?.7:1)*(S.partner&&S.npcs[S.partner].stage==='married'?.6:1);
     n.social=clamp(n.social-sd*k);
     S.pressure=clamp(S.pressure+.7*k*(has('prayer')?.6:1));
-    let hs=(n.social<30?1.4:.9)*(own('photos')?.75:1)*(own('rug')?.85:1);
+    let hs=(n.social<30?1.4:.9)*(1-Math.min(.5,(S.items&&typeof homeFx==='function'?homeFx().homesick:0)));
     S.homesick=clamp(S.homesick+hs*k);
     if(n.hunger<=0){n.energy=clamp(n.energy-2*k);n.fun=clamp(n.fun-2*k)}
     if(n.bladder<=0){n.bladder=100;n.hygiene=0;n.fun=clamp(n.fun-20);log("You couldn't hold it. Nobody saw. Probably.",'bad')}
@@ -132,7 +133,7 @@ function advance(h,opt={}){
   }
 }
 const sleepHours=()=>S.hour<7?7-S.hour:24-S.hour+7;
-function worth(){let f=0;S.furn.forEach(k=>{f+=(FURN[k].price||0)*.5});return Math.round(S.money-S.debt-S.loan+f+(typeof bizValue==='function'?bizValue():0))}
+function worth(){let f=0;if(S.items)[...S.items,...S.store].forEach(i=>{f+=(ITEMS[i.k].p||0)*.5}),S.acc.forEach(k=>{f+=(ITEMS[k].p||0)*.5});return Math.round(S.money-S.debt-S.loan+f+(typeof bizValue==='function'?bizValue():0))}
 function richList(){const l=S.rich.map(([n,w])=>({n,w:Math.round(w)}));l.push({n:S.name+' (you)',w:worth(),me:true});return l.sort((a,b)=>b.w-a.w)}
 const myRank=()=>richList().findIndex(x=>x.me)+1;
 const married=()=>S.partner&&S.npcs[S.partner].stage==='married';
@@ -144,7 +145,7 @@ function newDay(){
   S.weather=pick(['Drizzle','Drizzle','Grey','Grey','Cold snap','Sunny spell']);
   if(S.fresh>0)S.fresh--;
   if((S.day-1)%7===0)weekly();
-  if(S.day%28===0){spend(60,'Phone and energy bills');log('Phone and energy bills: £60.','')}
+  if(S.day%28===0){spend(25,'Phone bill');log('Phone bill: £25.','')}
   if(S.wedding&&S.day>=S.wedding){S.wedding=0;const p=S.npcs[S.partner];p.stage='married';add('fun',60);add('social',60);add('homesick',-30);add('pressure',-40);S.queue.unshift('wedding')}
   S.pressure=clamp(S.pressure+4);
   if(S.money<40&&S.day-S.lastNrpf>=6){S.lastNrpf=S.day;S.queue.push('broke')}
@@ -164,6 +165,7 @@ function weekly(){
   if(S.support){earn(S.support,'Asylum support');}
   const home=CITIES[S.city].homes.find(h=>h.id===S.home);
   const rent=married()?Math.round(home.rent/2):home.rent;
+  const bills=typeof homeBills==='function'?homeBills():0;if(bills){spend(married()?Math.round(bills/2):bills,'Council tax and energy bills')}
   if(rent===0){}else if(S.money>=rent){spend(rent,'Rent');S.rentStreak++;S.rentMissed=0;log(`Rent paid: ${gbp(rent)}${married()?' (your half)':''}.`,'good')}
   else{S.rentMissed++;S.rentStreak=0;log(`Couldn't pay rent (${gbp(rent)}). Warning ${S.rentMissed} of 3.`,'bad');if(S.rentMissed>=3)S.over='evicted'}
   if(S.debt>0){const p=Math.min(100,S.debt);if(S.money>=p){spend(p,'Repayment to Uncle Femi');S.debt-=p;if(S.debt<=0){msg('uncle','Debt cleared. Well done my son/daughter. Now you are a free person 😄');log('Uncle Femi is fully paid back!','good')}}else{add('pressure',15);msg('uncle','I did not see my £100 this week o. I hope all is well.')}}
@@ -235,24 +237,28 @@ const A=o=>ACTS.push(o);
 const inHotel=()=>CITIES[S.city].homes.find(h=>h.id===S.home)?.hotel;
 const meterBlock=()=>(inHotel()&&'No kitchen in the hotel. Meals are served at set times')||(S.meterOff&&'Electric meter has run out. Top it up first');
 // home
-A({id:'sleep',at:'home',label:'Sleep till 7:00',item:()=>own('bed')?'bed':'mattress',emote:'💤',h:()=>sleepHours(),sleep:true,sub:()=>own('bed')?'Proper bed. Deep rest':'Floor mattress. It does the job',run:()=>pick(['You slept like a baby.','Slept well, until the neighbour\'s alarm.','Dreamt about Mummy\'s pepper soup.'])});
-A({id:'nap',at:'home',label:'Take a nap',item:()=>own('sofa')?'sofa':own('bed')?'bed':'mattress',emote:'💤',h:2,sleep:true,sub:'2 hours',run:()=>{if(own('sofa'))add('fun',6);return 'Power nap. Much better.'}});
+A({id:'sleep',at:'home',label:'Sleep till 7:00',item:'bed',emote:'💤',h:()=>sleepHours(),sleep:true,sub:()=>{const c=S.items?homeFx().comfort:0;return c>=3?'King bed. Five-star sleep':c>=2?'Proper bed. Deep rest':c>=1?'Single bed. Decent rest':'Floor mattress. It does the job'},run:()=>pick(['You slept like a baby.','Slept well, until the neighbour\'s alarm.','Dreamt about Mummy\'s pepper soup.'])});
+A({id:'nap',at:'home',label:'Take a nap',item:()=>own('sofa')?'sofa':'bed',emote:'💤',h:2,sleep:true,sub:'2 hours',run:()=>{if(own('sofa'))add('fun',6);return 'Power nap. Much better.'}});
 A({id:'loo',at:'home',label:'Use the loo',spot:'loo',emote:'🚽',h:.25,run:()=>{S.needs.bladder=100;return 'Relief.'}});
-A({id:'shower',at:'home',label:'Baff',sub:'Shower and shea butter',spot:'loo',emote:'🚿',h:.5,run:()=>{const shared=CITIES[S.city].homes.find(h=>h.id===S.home).shared;if(shared&&Math.random()<.3){advance(.5);S.needs.hygiene=100;return 'Your flatmate was in the shower for 40 minutes. Eventually: fresh.'}S.needs.hygiene=100;return 'Fresh. Shea butter applied.'}});
+A({id:'shower',at:'home',label:'Baff',sub:'Shower and shea butter',spot:'shower',emote:'🚿',h:.5,run:()=>{const shared=CITIES[S.city].homes.find(h=>h.id===S.home).shared;if(shared&&Math.random()<.3){advance(.5);S.needs.hygiene=100;return 'Your flatmate was in the shower for 40 minutes. Eventually: fresh.'}S.needs.hygiene=100;return 'Fresh. Shea butter applied.'}});
 A({id:'jollof',at:'home',label:'Cook party jollof',sub:'Uses 1 bag of ingredients',item:'cooker',emote:'🍲',h:1.5,cond:()=>meterBlock()||(S.ingredients<1&&'Buy ingredients at the market first'),run:()=>{S.ingredients--;const q=S.skills.cooking;add('hunger',55);add('homesick',-25);add('fun',4+q*2);skill('cooking',.5);return q>=5?'Smoky, perfect party jollof. The whole stairwell is jealous.':q>=2?'Solid jollof. A bit of bottom pot, which is the best part.':'The jollof is... edible. Practice makes perfect.'}});
 A({id:'egusi',at:'home',label:'Egusi and pounded yam',sub:'Uses 2 bags. Needs cooking 3',item:'cooker',emote:'🥘',h:2,cond:()=>meterBlock()||(S.skills.cooking<3?'Needs cooking skill 3':S.ingredients<2&&'Needs 2 bags of ingredients'),run:()=>{S.ingredients-=2;add('hunger',75);add('homesick',-45);add('fun',15);skill('cooking',.6);return 'Egusi and pounded yam. You called Mummy on video just to show her.'}});
 A({id:'indomie',at:'home',label:'Indomie and egg',sub:'Quick and cheap',item:'cooker',emote:'🍜',h:.5,cost:1.5,cond:meterBlock,run:()=>{add('hunger',30);add('homesick',-5);skill('cooking',.1);return 'Indomie and egg. Uni days all over again.'}});
 A({id:'meter',at:'home',label:'Top up the electric meter',sub:'Prepayment key',spot:'loo',emote:'🔌',h:.5,cost:20,cond:()=>!S.meterOff&&'The meter is fine',run:()=>{S.meterOff=false;return 'Lights back on. Cooker back on.'}});
-A({id:'nolly',at:'home',label:'Watch Nollywood',item:()=>own('tv')?'tv':'chair',emote:'📺',h:2,sub:()=>own('tv')?'On the big screen':'On your phone',cond:meterBlock,run:()=>{add('fun',(own('tv')?30:16)*(has('homebody')?1.3:1));add('homesick',-8);return pick(['The twist at the end? Ah.','Two hours of village drama. Worth it.','You shouted at the screen. Twice.'])}});
-A({id:'football',at:'home',label:'Watch the football',sub:'Premier League on TV',item:'tv',emote:'⚽',h:2,cond:()=>meterBlock()||(!own('tv')&&'Buy a TV first'),run:()=>{add('fun',(has('football')?44:22));return pick(['Last-minute winner! You woke the whole block.','0–0. Two hours you will never get back.','Your team lost. Emeka is already texting.'])}});
+A({id:'homeworkout',at:'home',label:'Work out at home',sub:'Bike or dumbbells',item:'fitness',emote:'🚴🏾',h:1,cond:()=>!own('fitness')&&'Buy an exercise bike or dumbbells',run:()=>{skill('fitness',.55*(S.items?Math.max(1,homeFx().fitness):1));add('fun',8);add('hygiene',-18);return 'Sweaty, but proud. The neighbours heard you counting.'}});
+A({id:'gaming',at:'home',tv:true,label:'Play FIFA',sub:'Games console',item:'tv',emote:'🎮',h:2,cond:()=>meterBlock()||(!own('console')&&'Buy a games console'),run:()=>{add('fun',has('football')?45:30);add('social',S.npcs.emeka.rel>25?10:0);return pick(['You beat Emeka online 4-1. He wants a rematch.','Lost on penalties. You will not discuss it.','You played as Nigeria and won the World Cup. In your mind it counts.'])}});
+A({id:'laundry',at:'home',label:'Do the laundry',sub:'Then dry it on the airer, the British way',spot:'washer',emote:'🧺',h:1.5,cond:()=>!LAY().fix.some(f=>f.k==='washer')&&'No washing machine. Use the launderette or the shared one',run:()=>{add('hygiene',20);add('fun',-2);return pick(['Washing on the airer. It will be dry by Thursday. Maybe.','You found a £5 note in your jeans. Laundry pays.','Every radiator in the flat now has socks on it.'])}});
+A({id:'bbqparty',at:'home',label:'Garden BBQ with friends',sub:'Uses 3 bags. Suya on the grill',item:'bbq',emote:'🍖',h:4,cond:()=>!own('bbq')?'Buy a BBQ grill (needs a garden)':S.ingredients<3?'Needs 3 bags of ingredients':friendsFree().length<1&&'Make some friends first',run:()=>{S.ingredients-=3;const g=friendsFree().sort((a,b)=>S.npcs[b].rel-S.npcs[a].rel).slice(0,4);g.forEach(id=>rel(id,12));add('social',55);add('fun',40);add('hunger',55);S.hosted=(S.hosted||0)+1;return `${g.map(id=>NPCS[id].name).join(', ')} came over. Suya smoke, Afrobeats, and the neighbours peeking over the fence.`}});
+A({id:'nolly',at:'home',label:'Watch Nollywood',tv:true,item:()=>own('tv')?'tv':'seat',emote:'📺',h:2,sub:()=>own('tv')?'On the big screen':'On your phone',cond:meterBlock,run:()=>{add('fun',(own('tv')?30:16)*(has('homebody')?1.3:1));add('homesick',-8);return pick(['The twist at the end? Ah.','Two hours of village drama. Worth it.','You shouted at the screen. Twice.'])}});
+A({id:'football',at:'home',tv:true,label:'Watch the football',sub:'Premier League on TV',item:'tv',emote:'⚽',h:2,cond:()=>meterBlock()||(!own('tv')&&'Buy a TV first'),run:()=>{add('fun',(has('football')?44:22));return pick(['Last-minute winner! You woke the whole block.','0–0. Two hours you will never get back.','Your team lost. Emeka is already texting.'])}});
 A({id:'hotelmeal',at:'home',label:'Hotel meal',sub:'Served 12:00 to 14:00 and 17:00 to 19:00',spot:'door',emote:'🍽️',h:.75,cond:()=>!inHotel()?'Only in the hotel':!((S.hour>=12&&S.hour<14)||(S.hour>=17&&S.hour<19))&&'Meals are served 12:00 to 14:00 and 17:00 to 19:00',run:()=>{add('hunger',45);add('fun',-3);add('homesick',4);return pick(['Rice and something beige again.','Pasta. Again. You miss pepper.','You shared your secret bottle of pepper sauce with the table.'])}});
 A({id:'call',at:'home',label:'Call Mummy on WhatsApp',sub:'Less homesick, less pressure',spot:'idle',emote:'📱',h:1,run:()=>{add('pressure',-15);add('social',12);add('homesick',-18);return 'Mummy prayed for you for 20 minutes straight.'}});
-A({id:'study',at:'home',label:'Study for your career',sub:()=>own('desk')?'At your desk (faster)':'On the folding chair. Buy a desk to study faster',item:()=>own('desk')?'desk':'chair',emote:'📚',h:2,run:()=>{skill(S.track==='food'?'cooking':'career',own('desk')?.9:.6);add('fun',-8);add('energy',-6);return 'Study session done. Brain is full.'}});
+A({id:'study',at:'home',label:'Study for your career',sub:()=>own('desk')?'At your desk (faster)':'On the folding chair. Buy a desk to study faster',item:()=>own('desk')?'desk':'seat',emote:'📚',h:2,run:()=>{skill(S.track==='food'?'cooking':'career',.55+Math.min(.7,(S.items?homeFx().study:0)*.25));add('fun',-8);add('energy',-6);return 'Study session done. Brain is full.'}});
 A({id:'mirror',at:'home',label:'Practise small talk in the mirror',sub:'+ charisma',spot:'loo',emote:'🪞',h:1,run:()=>{skill('charisma',.5);return '"Lovely weather, isn\'t it?" You are getting there.'}});
 A({id:'photos',at:'home',label:'Look at family photos',item:'photos',spot:'idle',emote:'🖼️',h:.25,cond:()=>!own('photos')&&'Buy a family photo wall',run:()=>{add('homesick',-12);add('fun',4);return 'Grandma\'s smile fixes everything.'}});
 A({id:'dance',at:'home',label:'Afrobeats and dance',item:'speaker',emote:'💃🏾',h:1,cond:()=>!own('speaker')&&'Buy a speaker',run:()=>{add('fun',22);skill('fitness',.3);add('homesick',-6);return 'Burna Boy at full volume. The neighbours knocked. Worth it.'}});
 A({id:'skits',at:'home',label:'Film skits',sub:'Brand deals pay once you get good',item:'ringlight',emote:'🎬',h:2,cond:()=>!own('ringlight')&&'Buy a ring light',run:()=>{add('fun',15);skill('charisma',.4);if(S.skills.charisma>=3){const e=Math.round(rnd(10,25)+S.skills.charisma*10);earn(e,'Skit brand deal');return `Your "African mum vs British weather" skit went viral. +${gbp(e)}.`}return 'Your skit got 340 views. Mummy shared it 12 times.'}});
-A({id:'braid',at:'home',label:'Braid hair for clients',sub:'Side hustle',item:'chair',emote:'💇🏾',h:4,earn:()=>55,run:()=>{earn(55,'Braiding client');add('energy',-12);add('social',12);return 'Knotless braids done. Client says she will tag you.'}});
+A({id:'braid',at:'home',label:'Braid hair for clients',sub:'Side hustle',item:'seat',emote:'💇🏾',h:4,earn:()=>55,run:()=>{earn(55,'Braiding client');add('energy',-12);add('social',12);return 'Knotless braids done. Client says she will tag you.'}});
 A({id:'chops',at:'home',label:'Small chops orders',sub:'Uses 1 bag. Side hustle',item:'cooker',emote:'🥟',h:3,earn:()=>48+Math.round(S.skills.cooking*4),cond:()=>meterBlock()||(S.ingredients<1&&'You need ingredients'),run:()=>{S.ingredients--;const e=48+Math.round(S.skills.cooking*4);earn(e,'Small chops order');skill('cooking',.3);return `Puff-puff and samosa for a naming ceremony. +${gbp(e)}.`}});
 
 // everywhere outside
@@ -377,8 +383,8 @@ const EVENTS=[
  {id:'asy_decision',manual:true,title:'The letter',body:()=>'A brown envelope. Your hands are shaking. "You have been granted refugee status." You can work now, and you have 28 days to leave the hotel and find a home.',choices:[
    {l:'Call Mummy',s:'Then find a place to live',fx:()=>{S.workBan=false;S.support=0;S.visaLabel='Refugee status';add('fun',60);add('pressure',-40);add('homesick',-20);S.storyQ.push({day:S.day+1,id:'asy_home'});msg('mummy','GOD HAS DONE IT!!! 🙏🏾🙏🏾🙏🏾 My child, I am dancing in the compound right now.');return 'Mummy screamed so loud the neighbours came running.'}}]},
  {id:'asy_home',manual:true,title:'Finding a home',body:()=>'The council and a refugee charity help you look. Which place will you take? You can then apply for jobs in the Jobs app.',choices:[
-   {l:'A shared room',s:'Cheaper',fx:()=>{const h=CITIES[S.city].homes.find(h=>!h.hotel&&h.shared);S.home=h.id;S.at='home';CM=null;anim.reset=true;return `You moved into a ${h.name}. It's small. It's yours.`}},
-   {l:'A studio flat',s:'Your own space, higher rent',fx:()=>{const h=CITIES[S.city].homes.find(h=>!h.hotel&&!h.shared);S.home=h.id;S.at='home';CM=null;anim.reset=true;return `You moved into a ${h.name}. You put your one plate on the shelf and smiled.`}}]},
+   {l:'A shared room',s:'Cheaper',fx:()=>{const h=CITIES[S.city].homes.find(h=>h.layout==='room');S.home=h.id;S.at='home';CM=null;anim.reset=true;if(typeof relayout==='function')relayout();return `You moved into a ${h.name}. It's small. It's yours.`}},
+   {l:'A studio flat',s:'Your own space, higher rent',fx:()=>{const h=CITIES[S.city].homes.find(h=>h.layout==='studio');S.home=h.id;S.at='home';CM=null;anim.reset=true;if(typeof relayout==='function')relayout();return `You moved into a ${h.name}. You put your one plate on the shelf and smiled.`}}]},
  {id:'cousin',title:'Cousin Bayo wants to "come and stay small"',body:()=>'He is visiting the UK. "Small" usually means three weeks.',choices:[
    {l:'Let him stay',s:'+ gist, - £40, family happy',fx:()=>{spend(Math.min(40,Math.max(0,S.money)),'Feeding Cousin Bayo');add('social',20);add('pressure',-15);return 'Bayo is on your floor. He has already finished the jollof.'}},
    {l:'Point him to a hostel',s:'Family will hear about this',fx:()=>{add('pressure',15);return 'Your aunty in Lagos already knows.'}}]},
@@ -462,7 +468,7 @@ const GOALS=[
   ['host','Host a dinner at home',()=>S.hosted>=1],
   ['owambe','Party at 2 owambes',()=>S.owambes>=2],
   ['jollof','Win the jollof war with Kwame',()=>!!S.flags.jollofWin],
-  ['flat','Own 4 new pieces of furniture',()=>S.furn.filter(k=>!FURN[k].start).length>=4],
+  ['flat','Own 8 pieces of furniture',()=>S.items&&[...S.items,...S.store].filter(i=>ITEMS[i.k].p>0).length+S.acc.length>=8],
   ['promo','Reach level 3 in your career',()=>S.track&&S.level>=2],
   ['live','Chat with a real player',()=>!!S.flags.liveChatted],
 ];

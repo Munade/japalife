@@ -163,12 +163,12 @@ function frame(t){
   const want=Math.round(rect.width*dpr);if(cv.width!==want){cv.width=want;cv.height=Math.round(want*H/W)}
   ctx.setTransform(cv.width/W,0,0,cv.height/H,0,0);ctx.clearRect(0,0,W,H);
   // walking
-  if(anim.reset){const s=SPOT.idle;anim.x=anim.tx=s[0];anim.y=anim.ty=s[1];anim.reset=false}
-  const dx=anim.tx-anim.x,dy=anim.ty-anim.y,dist=Math.hypot(dx,dy);
-  if(dist>.04&&!reduceMotion){const sp=.07;anim.x+=dx/dist*Math.min(sp,dist);anim.y+=dy/dist*Math.min(sp,dist);anim.walking=true}
-  else{anim.x=anim.tx;anim.y=anim.ty;anim.walking=false;if(anim.onArrive){const f=anim.onArrive;anim.onArrive=null;f()}}
+  if(anim.reset){const s=(S.at==='home'&&typeof idleSpot==='function'&&S.items)?idleSpot():SPOT.idle;anim.x=anim.tx=s[0];anim.y=anim.ty=s[1];anim.path=null;anim.reset=false}
+  if(anim.path&&anim.path.length&&!reduceMotion){const [tx,ty]=anim.path[0];const dx=tx-anim.x,dy=ty-anim.y,dist=Math.hypot(dx,dy);const sp=.06;
+    if(dist<=sp){anim.x=tx;anim.y=ty;anim.path.shift()}else{anim.x+=dx/dist*sp;anim.y+=dy/dist*sp}anim.walking=true}
+  else{if(anim.path&&anim.path.length){const l=anim.path[anim.path.length-1];anim.x=l[0];anim.y=l[1]}anim.path=null;anim.walking=false;if(anim.onArrive){const f=anim.onArrive;anim.onArrive=null;f()}}
   const v=here();
-  if(v.type==='home')drawHome(t);else drawVenue(t,v);
+  if(v.type==='home')drawHome2(t);else drawVenue(t,v);
 }
 const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function drawAvatar(canvas,look,scale=1.6){const c=canvas.getContext('2d');const r=window.devicePixelRatio||1;canvas.width=canvas.clientWidth*r||140*r;canvas.height=canvas.clientHeight*r||160*r;c.setTransform(r,0,0,r,0,0);c.clearRect(0,0,canvas.width,canvas.height);const w=canvas.width/r,h=canvas.height/r;drawPerson(c,w/2,h-14,look,scale,{t:0})}

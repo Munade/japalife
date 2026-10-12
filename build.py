@@ -3,7 +3,7 @@ Run:  python3 build.py
 Order matters: later files use things defined in earlier ones."""
 import pathlib
 ROOT = pathlib.Path(__file__).parent
-ORDER = ["data.js", "engine.js", "biz.js", "social.js", "draw.js", "citymap.js", "story.js", "ui.js"]
+ORDER = ["data.js", "engine.js", "biz.js", "social.js", "draw.js", "citymap.js", "home.js", "story.js", "ui.js"]
 shell = (ROOT / "src/shell.html").read_text()
 js = "\n".join((ROOT / "src" / f).read_text() for f in ORDER)
 page = shell + "<script>\n" + js + "\n</script>\n"

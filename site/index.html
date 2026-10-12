@@ -377,7 +377,7 @@ const CITIES={
   london:{ll:{"market": [51.4697, -0.0692], "salon": [51.4745, -0.064], "office": [51.5049, -0.0195], "carehome": [51.456, -0.012], "kitchen": [51.5262, -0.0802], "campus": [51.4829, -0.0062], "library": [51.4738, -0.0687], "church": [51.485, -0.075], "hall": [51.504, 0.115], "club": [51.5236, -0.076], "gym": [51.4946, -0.1003], "park": [51.461, -0.065], "pub": [51.4605, -0.11], "test": [51.3755, -0.0985], "airport": [51.47, -0.4543],chicken:[51.4722, -0.0705],cafe:[51.4745, -0.0712],caribbean:[51.462, -0.117],retail:[51.4725, -0.072],warehouse:[51.53, 0.13]},name:'London',london:true,
     river:'M-10 176 C 50 160, 90 200, 150 186 S 250 150, 300 172 S 350 196, 380 180',
     parks:[[70,392,46,26],[110,46,40,22]],
-    homes:[{id:'hotel_london',hotel:true,ll:[51.39, -0.105],name:'Asylum hotel, Croydon',rent:0,shared:true},{id:'peckham',ll:[51.4705, -0.0662],name:'Shared room, Peckham',rent:160,shared:true},{id:'woolwich',ll:[51.4908, 0.0697],name:'Studio flat, Woolwich',rent:235}],
+    homes:[{id:'hotel_london',layout:'hotel',hotel:true,ll:[51.39, -0.105],name:'Asylum hotel, Croydon',rent:0,shared:true},{id:'peckham',layout:'room',ll:[51.4705, -0.0662],name:'Shared room, Peckham',rent:160,shared:true},{id:'woolwich',layout:'studio',ll:[51.4908, 0.0697],name:'Studio flat, Woolwich',rent:235},{id:'lewisham1',layout:'flat',ll:[51.4615, -0.0105],name:'One-bed flat, Lewisham',rent:370},{id:'catford2',layout:'house',ll:[51.445, -0.02],name:'Two-bed terraced house, Catford',rent:520}],
     v:{market:'Rye Lane Market, Peckham',salon:'Fresh Fade Barbers & Braids',office:'Office, Canary Wharf',carehome:'Sunrise Lodge Care Home, Lewisham',kitchen:'Restaurant kitchen, Shoreditch',campus:'University campus, Greenwich',library:'Peckham Library',church:'Grace Assembly, Old Kent Road',hall:'Royal Event Hall, Thamesmead',club:'Afrobeats night, Shoreditch',gym:'Gym, Elephant & Castle',park:'Peckham Rye Park',pub:'Sports bar, Brixton',test:'Test centre, Croydon',airport:'Heathrow Airport',chicken:'Golden Wings Chicken, Peckham',cafe:'Rye Lane Café',caribbean:'Jerk Junction, Brixton',retail:'Supermarket, Peckham',warehouse:'Warehouse, Dagenham'},
     eats:[{id:'805',ll:[51.4799, -0.0565],name:'805 Restaurant',area:'Old Kent Road',dish:'Monika fish and party jollof',cost:16,x:24,y:318},
       {id:'papis',ll:[51.4762, -0.0326],name:"Papi's Grill",area:'New Cross',dish:'Asun and suya-spiced beef',cost:14,x:220,y:286},
@@ -394,7 +394,7 @@ const CITIES={
   manchester:{ll:{"market": [53.461, -2.239], "salon": [53.464, -2.236], "office": [53.4805, -2.251], "carehome": [53.492, -2.3], "kitchen": [53.484, -2.235], "campus": [53.4668, -2.2339], "library": [53.4782, -2.2447], "church": [53.4675, -2.25], "hall": [53.461, -2.286], "club": [53.478, -2.249], "gym": [53.47, -2.244], "park": [53.4478, -2.2245], "pub": [53.443, -2.219], "test": [53.4795, -2.24], "airport": [53.3588, -2.2727],chicken:[53.462, -2.232],cafe:[53.4835, -2.2365],caribbean:[53.4575, -2.24],retail:[53.469, -2.247],warehouse:[53.465, -2.32]},name:'Manchester',
     river:'M-10 120 C 60 140, 100 100, 160 130 S 260 170, 380 140',
     parks:[[88,398,44,26],[300,60,40,24]],
-    homes:[{id:'hotel_manchester',hotel:true,ll:[53.472, -2.295],name:'Asylum hotel, Salford Quays',rent:0,shared:true},{id:'mossside',ll:[53.459, -2.233],name:'Shared room, Moss Side',rent:120,shared:true},{id:'salford',ll:[53.487, -2.287],name:'Studio flat, Salford',rent:185}],
+    homes:[{id:'hotel_manchester',layout:'hotel',hotel:true,ll:[53.472, -2.295],name:'Asylum hotel, Salford Quays',rent:0,shared:true},{id:'mossside',layout:'room',ll:[53.459, -2.233],name:'Shared room, Moss Side',rent:120,shared:true},{id:'salford',layout:'studio',ll:[53.487, -2.287],name:'Studio flat, Salford',rent:185},{id:'chorlton1',layout:'flat',ll:[53.442, -2.275],name:'One-bed flat, Chorlton',rent:250},{id:'levy2',layout:'house',ll:[53.444, -2.193],name:'Two-bed terraced house, Levenshulme',rent:300}],
     v:{market:'Afro Foods, Moss Side',salon:'Fresh Fade Barbers & Braids',office:'Office, Spinningfields',carehome:'Brookfield Care Home, Salford',kitchen:'Restaurant kitchen, Northern Quarter',campus:'University campus, Oxford Road',library:'Central Library',church:'Grace Assembly, Hulme',hall:'Royal Event Hall, Old Trafford',club:'Afrobeats night, Deansgate',gym:'Gym, Hulme',park:'Platt Fields Park',pub:'Sports bar, Fallowfield',test:'Test centre, city centre',airport:'Manchester Airport',chicken:'Golden Wings Chicken, Moss Side',cafe:'Northern Quarter Café',caribbean:'Jerk Junction, Moss Side',retail:'Supermarket, Hulme',warehouse:'Warehouse, Trafford Park'},
     eats:[{id:'yettis',ll:[53.4852, -2.2408],name:"Yetti's Kitchen",area:'Printworks',dish:'Jollof, pounded yam and egusi',cost:15,x:200,y:186},
       {id:'enishm',ll:[53.4763, -2.2511],name:'Enish',area:'Deansgate',dish:'Goat pepper soup and chicken suya',cost:26,x:120,y:176}],
@@ -407,7 +407,7 @@ const CITIES={
   leeds:{ll:{"market": [53.815, -1.531], "salon": [53.8135, -1.535], "office": [53.796, -1.556], "carehome": [53.834, -1.5], "kitchen": [53.7955, -1.5405], "campus": [53.8067, -1.555], "library": [53.8001, -1.549], "church": [53.811, -1.514], "hall": [53.808, -1.51], "club": [53.795, -1.5395], "gym": [53.7985, -1.545], "park": [53.837, -1.497], "pub": [53.8215, -1.5795], "test": [53.7975, -1.542], "airport": [53.8659, -1.6606],chicken:[53.816, -1.529],cafe:[53.7975, -1.545],caribbean:[53.8185, -1.5335],retail:[53.81, -1.52],warehouse:[53.79, -1.51]},name:'Leeds',
     river:'M-10 210 C 70 230, 130 190, 190 214 S 300 240, 380 216',
     parks:[[300,70,48,28],[88,400,40,24]],
-    homes:[{id:'hotel_leeds',hotel:true,ll:[53.818, -1.465],name:'Asylum hotel, Seacroft',rent:0,shared:true},{id:'chapeltown',ll:[53.817, -1.532],name:'Shared room, Chapeltown',rent:105,shared:true},{id:'headingley',ll:[53.819, -1.577],name:'Studio flat, Headingley',rent:165}],
+    homes:[{id:'hotel_leeds',layout:'hotel',hotel:true,ll:[53.818, -1.465],name:'Asylum hotel, Seacroft',rent:0,shared:true},{id:'chapeltown',layout:'room',ll:[53.817, -1.532],name:'Shared room, Chapeltown',rent:105,shared:true},{id:'headingley',layout:'studio',ll:[53.819, -1.577],name:'Studio flat, Headingley',rent:165},{id:'roundhay1',layout:'flat',ll:[53.83, -1.503],name:'One-bed flat, Roundhay',rent:220},{id:'harehills2',layout:'house',ll:[53.8125, -1.508],name:'Two-bed terraced house, Harehills',rent:265}],
     v:{market:'Afro Foods, Chapeltown',salon:'Fresh Fade Barbers & Braids',office:'Office, Wellington Place',carehome:'Oakwood Care Home, Roundhay',kitchen:'Restaurant kitchen, Call Lane',campus:'University campus, Woodhouse',library:'Leeds Central Library',church:'Grace Assembly, Harehills',hall:'Royal Event Hall, Harehills',club:'Afrobeats night, Call Lane',gym:'Gym, city centre',park:'Roundhay Park',pub:'Sports bar, Headingley',test:'Test centre, city centre',airport:'Leeds Bradford Airport',chicken:'Golden Wings Chicken, Chapeltown',cafe:'Kirkgate Café',caribbean:'Jerk Junction, Chapeltown',retail:'Supermarket, Harehills',warehouse:'Warehouse, Cross Green'},
     eats:[{id:'juicy',ll:[53.7838, -1.5517],name:'Juicy African Kitchen',area:'Holbeck',dish:'Smoky jollof and goat suya',cost:11,x:130,y:262},
       {id:'afrochops',ll:[53.7424, -1.5433],name:'Afrochops',area:'Middleton',dish:'Oxtail, egusi and ayamase',cost:10,x:196,y:388}],
@@ -552,7 +552,7 @@ const val=x=>typeof x==='function'?x():x;
 const dow=()=>(S.day-1)%7;
 const hhmm=h=>{const m=Math.round(h*60)%1440;return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0')};
 const has=t=>S.traits.includes(t);
-const own=k=>S.furn.includes(k);
+const own=k=>{if(!S.items&&typeof ensureItems==='function')ensureItems();if(!S.items)return (S.furn||[]).includes(k);if(k==='bed')return homeFx().comfort>=2;if(k==='mattress')return true;if(k==='rug')return S.items.some(i=>ITEMS[i.k].st==='rug');return ownTag(k)};
 const hash=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return (h>>>0)/4294967295};
 const price=c=>r2(c*(has('pincher')?.85:1));
 function add(k,v){ if(k in S.needs) S.needs[k]=clamp(S.needs[k]+v); else S[k]=clamp(S[k]+v); }
@@ -653,18 +653,19 @@ function advance(h,opt={}){
     const n=S.needs,k=.5,sl=opt.sleep,night=S.hour<5||S.hour>=23;
     if(opt.away){S.hour+=k;if(S.hour>=24){S.hour-=24;newDay()}continue}
     n.hunger=clamp(n.hunger-(sl?1.5:4)*k);
-    let eg=sl?(own('bed')?16:13):(night&&!has('nightowl')?-5:-3);
+    const HF=(S.items&&typeof homeFx==='function'&&S.at==='home')?homeFx():{comfort:1,fun:0,homesick:0};
+    let eg=sl?(12+HF.comfort*1.6):(night&&!has('nightowl')?-5:-3);
     if(sl&&S.weather==='Cold snap'&&!own('blanket'))eg*=.75;
     n.energy=clamp(n.energy+eg*k);
     n.bladder=clamp(n.bladder-(sl?2:6)*k);
     n.hygiene=clamp(n.hygiene-(sl?.8:2)*k);
     let fd=sl?.3:2*(has('hustler')?1.25:1)*(S.weather==='Cold snap'&&!S.flags.coat?1.3:1);
-    if(S.at==='home'&&own('plants'))fd*=.8;
+    if(S.at==='home')fd*=1-Math.min(.45,HF.fun*.06);
     n.fun=clamp(n.fun-fd*k);
     let sd=sl?.3:1.5*(has('homebody')?.7:1)*(S.partner&&S.npcs[S.partner].stage==='married'?.6:1);
     n.social=clamp(n.social-sd*k);
     S.pressure=clamp(S.pressure+.7*k*(has('prayer')?.6:1));
-    let hs=(n.social<30?1.4:.9)*(own('photos')?.75:1)*(own('rug')?.85:1);
+    let hs=(n.social<30?1.4:.9)*(1-Math.min(.5,(S.items&&typeof homeFx==='function'?homeFx().homesick:0)));
     S.homesick=clamp(S.homesick+hs*k);
     if(n.hunger<=0){n.energy=clamp(n.energy-2*k);n.fun=clamp(n.fun-2*k)}
     if(n.bladder<=0){n.bladder=100;n.hygiene=0;n.fun=clamp(n.fun-20);log("You couldn't hold it. Nobody saw. Probably.",'bad')}
@@ -673,7 +674,7 @@ function advance(h,opt={}){
   }
 }
 const sleepHours=()=>S.hour<7?7-S.hour:24-S.hour+7;
-function worth(){let f=0;S.furn.forEach(k=>{f+=(FURN[k].price||0)*.5});return Math.round(S.money-S.debt-S.loan+f+(typeof bizValue==='function'?bizValue():0))}
+function worth(){let f=0;if(S.items)[...S.items,...S.store].forEach(i=>{f+=(ITEMS[i.k].p||0)*.5}),S.acc.forEach(k=>{f+=(ITEMS[k].p||0)*.5});return Math.round(S.money-S.debt-S.loan+f+(typeof bizValue==='function'?bizValue():0))}
 function richList(){const l=S.rich.map(([n,w])=>({n,w:Math.round(w)}));l.push({n:S.name+' (you)',w:worth(),me:true});return l.sort((a,b)=>b.w-a.w)}
 const myRank=()=>richList().findIndex(x=>x.me)+1;
 const married=()=>S.partner&&S.npcs[S.partner].stage==='married';
@@ -685,7 +686,7 @@ function newDay(){
   S.weather=pick(['Drizzle','Drizzle','Grey','Grey','Cold snap','Sunny spell']);
   if(S.fresh>0)S.fresh--;
   if((S.day-1)%7===0)weekly();
-  if(S.day%28===0){spend(60,'Phone and energy bills');log('Phone and energy bills: £60.','')}
+  if(S.day%28===0){spend(25,'Phone bill');log('Phone bill: £25.','')}
   if(S.wedding&&S.day>=S.wedding){S.wedding=0;const p=S.npcs[S.partner];p.stage='married';add('fun',60);add('social',60);add('homesick',-30);add('pressure',-40);S.queue.unshift('wedding')}
   S.pressure=clamp(S.pressure+4);
   if(S.money<40&&S.day-S.lastNrpf>=6){S.lastNrpf=S.day;S.queue.push('broke')}
@@ -705,6 +706,7 @@ function weekly(){
   if(S.support){earn(S.support,'Asylum support');}
   const home=CITIES[S.city].homes.find(h=>h.id===S.home);
   const rent=married()?Math.round(home.rent/2):home.rent;
+  const bills=typeof homeBills==='function'?homeBills():0;if(bills){spend(married()?Math.round(bills/2):bills,'Council tax and energy bills')}
   if(rent===0){}else if(S.money>=rent){spend(rent,'Rent');S.rentStreak++;S.rentMissed=0;log(`Rent paid: ${gbp(rent)}${married()?' (your half)':''}.`,'good')}
   else{S.rentMissed++;S.rentStreak=0;log(`Couldn't pay rent (${gbp(rent)}). Warning ${S.rentMissed} of 3.`,'bad');if(S.rentMissed>=3)S.over='evicted'}
   if(S.debt>0){const p=Math.min(100,S.debt);if(S.money>=p){spend(p,'Repayment to Uncle Femi');S.debt-=p;if(S.debt<=0){msg('uncle','Debt cleared. Well done my son/daughter. Now you are a free person 😄');log('Uncle Femi is fully paid back!','good')}}else{add('pressure',15);msg('uncle','I did not see my £100 this week o. I hope all is well.')}}
@@ -776,24 +778,28 @@ const A=o=>ACTS.push(o);
 const inHotel=()=>CITIES[S.city].homes.find(h=>h.id===S.home)?.hotel;
 const meterBlock=()=>(inHotel()&&'No kitchen in the hotel. Meals are served at set times')||(S.meterOff&&'Electric meter has run out. Top it up first');
 // home
-A({id:'sleep',at:'home',label:'Sleep till 7:00',item:()=>own('bed')?'bed':'mattress',emote:'💤',h:()=>sleepHours(),sleep:true,sub:()=>own('bed')?'Proper bed. Deep rest':'Floor mattress. It does the job',run:()=>pick(['You slept like a baby.','Slept well, until the neighbour\'s alarm.','Dreamt about Mummy\'s pepper soup.'])});
-A({id:'nap',at:'home',label:'Take a nap',item:()=>own('sofa')?'sofa':own('bed')?'bed':'mattress',emote:'💤',h:2,sleep:true,sub:'2 hours',run:()=>{if(own('sofa'))add('fun',6);return 'Power nap. Much better.'}});
+A({id:'sleep',at:'home',label:'Sleep till 7:00',item:'bed',emote:'💤',h:()=>sleepHours(),sleep:true,sub:()=>{const c=S.items?homeFx().comfort:0;return c>=3?'King bed. Five-star sleep':c>=2?'Proper bed. Deep rest':c>=1?'Single bed. Decent rest':'Floor mattress. It does the job'},run:()=>pick(['You slept like a baby.','Slept well, until the neighbour\'s alarm.','Dreamt about Mummy\'s pepper soup.'])});
+A({id:'nap',at:'home',label:'Take a nap',item:()=>own('sofa')?'sofa':'bed',emote:'💤',h:2,sleep:true,sub:'2 hours',run:()=>{if(own('sofa'))add('fun',6);return 'Power nap. Much better.'}});
 A({id:'loo',at:'home',label:'Use the loo',spot:'loo',emote:'🚽',h:.25,run:()=>{S.needs.bladder=100;return 'Relief.'}});
-A({id:'shower',at:'home',label:'Baff',sub:'Shower and shea butter',spot:'loo',emote:'🚿',h:.5,run:()=>{const shared=CITIES[S.city].homes.find(h=>h.id===S.home).shared;if(shared&&Math.random()<.3){advance(.5);S.needs.hygiene=100;return 'Your flatmate was in the shower for 40 minutes. Eventually: fresh.'}S.needs.hygiene=100;return 'Fresh. Shea butter applied.'}});
+A({id:'shower',at:'home',label:'Baff',sub:'Shower and shea butter',spot:'shower',emote:'🚿',h:.5,run:()=>{const shared=CITIES[S.city].homes.find(h=>h.id===S.home).shared;if(shared&&Math.random()<.3){advance(.5);S.needs.hygiene=100;return 'Your flatmate was in the shower for 40 minutes. Eventually: fresh.'}S.needs.hygiene=100;return 'Fresh. Shea butter applied.'}});
 A({id:'jollof',at:'home',label:'Cook party jollof',sub:'Uses 1 bag of ingredients',item:'cooker',emote:'🍲',h:1.5,cond:()=>meterBlock()||(S.ingredients<1&&'Buy ingredients at the market first'),run:()=>{S.ingredients--;const q=S.skills.cooking;add('hunger',55);add('homesick',-25);add('fun',4+q*2);skill('cooking',.5);return q>=5?'Smoky, perfect party jollof. The whole stairwell is jealous.':q>=2?'Solid jollof. A bit of bottom pot, which is the best part.':'The jollof is... edible. Practice makes perfect.'}});
 A({id:'egusi',at:'home',label:'Egusi and pounded yam',sub:'Uses 2 bags. Needs cooking 3',item:'cooker',emote:'🥘',h:2,cond:()=>meterBlock()||(S.skills.cooking<3?'Needs cooking skill 3':S.ingredients<2&&'Needs 2 bags of ingredients'),run:()=>{S.ingredients-=2;add('hunger',75);add('homesick',-45);add('fun',15);skill('cooking',.6);return 'Egusi and pounded yam. You called Mummy on video just to show her.'}});
 A({id:'indomie',at:'home',label:'Indomie and egg',sub:'Quick and cheap',item:'cooker',emote:'🍜',h:.5,cost:1.5,cond:meterBlock,run:()=>{add('hunger',30);add('homesick',-5);skill('cooking',.1);return 'Indomie and egg. Uni days all over again.'}});
 A({id:'meter',at:'home',label:'Top up the electric meter',sub:'Prepayment key',spot:'loo',emote:'🔌',h:.5,cost:20,cond:()=>!S.meterOff&&'The meter is fine',run:()=>{S.meterOff=false;return 'Lights back on. Cooker back on.'}});
-A({id:'nolly',at:'home',label:'Watch Nollywood',item:()=>own('tv')?'tv':'chair',emote:'📺',h:2,sub:()=>own('tv')?'On the big screen':'On your phone',cond:meterBlock,run:()=>{add('fun',(own('tv')?30:16)*(has('homebody')?1.3:1));add('homesick',-8);return pick(['The twist at the end? Ah.','Two hours of village drama. Worth it.','You shouted at the screen. Twice.'])}});
-A({id:'football',at:'home',label:'Watch the football',sub:'Premier League on TV',item:'tv',emote:'⚽',h:2,cond:()=>meterBlock()||(!own('tv')&&'Buy a TV first'),run:()=>{add('fun',(has('football')?44:22));return pick(['Last-minute winner! You woke the whole block.','0–0. Two hours you will never get back.','Your team lost. Emeka is already texting.'])}});
+A({id:'homeworkout',at:'home',label:'Work out at home',sub:'Bike or dumbbells',item:'fitness',emote:'🚴🏾',h:1,cond:()=>!own('fitness')&&'Buy an exercise bike or dumbbells',run:()=>{skill('fitness',.55*(S.items?Math.max(1,homeFx().fitness):1));add('fun',8);add('hygiene',-18);return 'Sweaty, but proud. The neighbours heard you counting.'}});
+A({id:'gaming',at:'home',tv:true,label:'Play FIFA',sub:'Games console',item:'tv',emote:'🎮',h:2,cond:()=>meterBlock()||(!own('console')&&'Buy a games console'),run:()=>{add('fun',has('football')?45:30);add('social',S.npcs.emeka.rel>25?10:0);return pick(['You beat Emeka online 4-1. He wants a rematch.','Lost on penalties. You will not discuss it.','You played as Nigeria and won the World Cup. In your mind it counts.'])}});
+A({id:'laundry',at:'home',label:'Do the laundry',sub:'Then dry it on the airer, the British way',spot:'washer',emote:'🧺',h:1.5,cond:()=>!LAY().fix.some(f=>f.k==='washer')&&'No washing machine. Use the launderette or the shared one',run:()=>{add('hygiene',20);add('fun',-2);return pick(['Washing on the airer. It will be dry by Thursday. Maybe.','You found a £5 note in your jeans. Laundry pays.','Every radiator in the flat now has socks on it.'])}});
+A({id:'bbqparty',at:'home',label:'Garden BBQ with friends',sub:'Uses 3 bags. Suya on the grill',item:'bbq',emote:'🍖',h:4,cond:()=>!own('bbq')?'Buy a BBQ grill (needs a garden)':S.ingredients<3?'Needs 3 bags of ingredients':friendsFree().length<1&&'Make some friends first',run:()=>{S.ingredients-=3;const g=friendsFree().sort((a,b)=>S.npcs[b].rel-S.npcs[a].rel).slice(0,4);g.forEach(id=>rel(id,12));add('social',55);add('fun',40);add('hunger',55);S.hosted=(S.hosted||0)+1;return `${g.map(id=>NPCS[id].name).join(', ')} came over. Suya smoke, Afrobeats, and the neighbours peeking over the fence.`}});
+A({id:'nolly',at:'home',label:'Watch Nollywood',tv:true,item:()=>own('tv')?'tv':'seat',emote:'📺',h:2,sub:()=>own('tv')?'On the big screen':'On your phone',cond:meterBlock,run:()=>{add('fun',(own('tv')?30:16)*(has('homebody')?1.3:1));add('homesick',-8);return pick(['The twist at the end? Ah.','Two hours of village drama. Worth it.','You shouted at the screen. Twice.'])}});
+A({id:'football',at:'home',tv:true,label:'Watch the football',sub:'Premier League on TV',item:'tv',emote:'⚽',h:2,cond:()=>meterBlock()||(!own('tv')&&'Buy a TV first'),run:()=>{add('fun',(has('football')?44:22));return pick(['Last-minute winner! You woke the whole block.','0–0. Two hours you will never get back.','Your team lost. Emeka is already texting.'])}});
 A({id:'hotelmeal',at:'home',label:'Hotel meal',sub:'Served 12:00 to 14:00 and 17:00 to 19:00',spot:'door',emote:'🍽️',h:.75,cond:()=>!inHotel()?'Only in the hotel':!((S.hour>=12&&S.hour<14)||(S.hour>=17&&S.hour<19))&&'Meals are served 12:00 to 14:00 and 17:00 to 19:00',run:()=>{add('hunger',45);add('fun',-3);add('homesick',4);return pick(['Rice and something beige again.','Pasta. Again. You miss pepper.','You shared your secret bottle of pepper sauce with the table.'])}});
 A({id:'call',at:'home',label:'Call Mummy on WhatsApp',sub:'Less homesick, less pressure',spot:'idle',emote:'📱',h:1,run:()=>{add('pressure',-15);add('social',12);add('homesick',-18);return 'Mummy prayed for you for 20 minutes straight.'}});
-A({id:'study',at:'home',label:'Study for your career',sub:()=>own('desk')?'At your desk (faster)':'On the folding chair. Buy a desk to study faster',item:()=>own('desk')?'desk':'chair',emote:'📚',h:2,run:()=>{skill(S.track==='food'?'cooking':'career',own('desk')?.9:.6);add('fun',-8);add('energy',-6);return 'Study session done. Brain is full.'}});
+A({id:'study',at:'home',label:'Study for your career',sub:()=>own('desk')?'At your desk (faster)':'On the folding chair. Buy a desk to study faster',item:()=>own('desk')?'desk':'seat',emote:'📚',h:2,run:()=>{skill(S.track==='food'?'cooking':'career',.55+Math.min(.7,(S.items?homeFx().study:0)*.25));add('fun',-8);add('energy',-6);return 'Study session done. Brain is full.'}});
 A({id:'mirror',at:'home',label:'Practise small talk in the mirror',sub:'+ charisma',spot:'loo',emote:'🪞',h:1,run:()=>{skill('charisma',.5);return '"Lovely weather, isn\'t it?" You are getting there.'}});
 A({id:'photos',at:'home',label:'Look at family photos',item:'photos',spot:'idle',emote:'🖼️',h:.25,cond:()=>!own('photos')&&'Buy a family photo wall',run:()=>{add('homesick',-12);add('fun',4);return 'Grandma\'s smile fixes everything.'}});
 A({id:'dance',at:'home',label:'Afrobeats and dance',item:'speaker',emote:'💃🏾',h:1,cond:()=>!own('speaker')&&'Buy a speaker',run:()=>{add('fun',22);skill('fitness',.3);add('homesick',-6);return 'Burna Boy at full volume. The neighbours knocked. Worth it.'}});
 A({id:'skits',at:'home',label:'Film skits',sub:'Brand deals pay once you get good',item:'ringlight',emote:'🎬',h:2,cond:()=>!own('ringlight')&&'Buy a ring light',run:()=>{add('fun',15);skill('charisma',.4);if(S.skills.charisma>=3){const e=Math.round(rnd(10,25)+S.skills.charisma*10);earn(e,'Skit brand deal');return `Your "African mum vs British weather" skit went viral. +${gbp(e)}.`}return 'Your skit got 340 views. Mummy shared it 12 times.'}});
-A({id:'braid',at:'home',label:'Braid hair for clients',sub:'Side hustle',item:'chair',emote:'💇🏾',h:4,earn:()=>55,run:()=>{earn(55,'Braiding client');add('energy',-12);add('social',12);return 'Knotless braids done. Client says she will tag you.'}});
+A({id:'braid',at:'home',label:'Braid hair for clients',sub:'Side hustle',item:'seat',emote:'💇🏾',h:4,earn:()=>55,run:()=>{earn(55,'Braiding client');add('energy',-12);add('social',12);return 'Knotless braids done. Client says she will tag you.'}});
 A({id:'chops',at:'home',label:'Small chops orders',sub:'Uses 1 bag. Side hustle',item:'cooker',emote:'🥟',h:3,earn:()=>48+Math.round(S.skills.cooking*4),cond:()=>meterBlock()||(S.ingredients<1&&'You need ingredients'),run:()=>{S.ingredients--;const e=48+Math.round(S.skills.cooking*4);earn(e,'Small chops order');skill('cooking',.3);return `Puff-puff and samosa for a naming ceremony. +${gbp(e)}.`}});
 
 // everywhere outside
@@ -918,8 +924,8 @@ const EVENTS=[
  {id:'asy_decision',manual:true,title:'The letter',body:()=>'A brown envelope. Your hands are shaking. "You have been granted refugee status." You can work now, and you have 28 days to leave the hotel and find a home.',choices:[
    {l:'Call Mummy',s:'Then find a place to live',fx:()=>{S.workBan=false;S.support=0;S.visaLabel='Refugee status';add('fun',60);add('pressure',-40);add('homesick',-20);S.storyQ.push({day:S.day+1,id:'asy_home'});msg('mummy','GOD HAS DONE IT!!! 🙏🏾🙏🏾🙏🏾 My child, I am dancing in the compound right now.');return 'Mummy screamed so loud the neighbours came running.'}}]},
  {id:'asy_home',manual:true,title:'Finding a home',body:()=>'The council and a refugee charity help you look. Which place will you take? You can then apply for jobs in the Jobs app.',choices:[
-   {l:'A shared room',s:'Cheaper',fx:()=>{const h=CITIES[S.city].homes.find(h=>!h.hotel&&h.shared);S.home=h.id;S.at='home';CM=null;anim.reset=true;return `You moved into a ${h.name}. It's small. It's yours.`}},
-   {l:'A studio flat',s:'Your own space, higher rent',fx:()=>{const h=CITIES[S.city].homes.find(h=>!h.hotel&&!h.shared);S.home=h.id;S.at='home';CM=null;anim.reset=true;return `You moved into a ${h.name}. You put your one plate on the shelf and smiled.`}}]},
+   {l:'A shared room',s:'Cheaper',fx:()=>{const h=CITIES[S.city].homes.find(h=>h.layout==='room');S.home=h.id;S.at='home';CM=null;anim.reset=true;if(typeof relayout==='function')relayout();return `You moved into a ${h.name}. It's small. It's yours.`}},
+   {l:'A studio flat',s:'Your own space, higher rent',fx:()=>{const h=CITIES[S.city].homes.find(h=>h.layout==='studio');S.home=h.id;S.at='home';CM=null;anim.reset=true;if(typeof relayout==='function')relayout();return `You moved into a ${h.name}. You put your one plate on the shelf and smiled.`}}]},
  {id:'cousin',title:'Cousin Bayo wants to "come and stay small"',body:()=>'He is visiting the UK. "Small" usually means three weeks.',choices:[
    {l:'Let him stay',s:'+ gist, - £40, family happy',fx:()=>{spend(Math.min(40,Math.max(0,S.money)),'Feeding Cousin Bayo');add('social',20);add('pressure',-15);return 'Bayo is on your floor. He has already finished the jollof.'}},
    {l:'Point him to a hostel',s:'Family will hear about this',fx:()=>{add('pressure',15);return 'Your aunty in Lagos already knows.'}}]},
@@ -1003,7 +1009,7 @@ const GOALS=[
   ['host','Host a dinner at home',()=>S.hosted>=1],
   ['owambe','Party at 2 owambes',()=>S.owambes>=2],
   ['jollof','Win the jollof war with Kwame',()=>!!S.flags.jollofWin],
-  ['flat','Own 4 new pieces of furniture',()=>S.furn.filter(k=>!FURN[k].start).length>=4],
+  ['flat','Own 8 pieces of furniture',()=>S.items&&[...S.items,...S.store].filter(i=>ITEMS[i.k].p>0).length+S.acc.length>=8],
   ['promo','Reach level 3 in your career',()=>S.track&&S.level>=2],
   ['live','Chat with a real player',()=>!!S.flags.liveChatted],
 ];
@@ -1407,12 +1413,12 @@ function frame(t){
   const want=Math.round(rect.width*dpr);if(cv.width!==want){cv.width=want;cv.height=Math.round(want*H/W)}
   ctx.setTransform(cv.width/W,0,0,cv.height/H,0,0);ctx.clearRect(0,0,W,H);
   // walking
-  if(anim.reset){const s=SPOT.idle;anim.x=anim.tx=s[0];anim.y=anim.ty=s[1];anim.reset=false}
-  const dx=anim.tx-anim.x,dy=anim.ty-anim.y,dist=Math.hypot(dx,dy);
-  if(dist>.04&&!reduceMotion){const sp=.07;anim.x+=dx/dist*Math.min(sp,dist);anim.y+=dy/dist*Math.min(sp,dist);anim.walking=true}
-  else{anim.x=anim.tx;anim.y=anim.ty;anim.walking=false;if(anim.onArrive){const f=anim.onArrive;anim.onArrive=null;f()}}
+  if(anim.reset){const s=(S.at==='home'&&typeof idleSpot==='function'&&S.items)?idleSpot():SPOT.idle;anim.x=anim.tx=s[0];anim.y=anim.ty=s[1];anim.path=null;anim.reset=false}
+  if(anim.path&&anim.path.length&&!reduceMotion){const [tx,ty]=anim.path[0];const dx=tx-anim.x,dy=ty-anim.y,dist=Math.hypot(dx,dy);const sp=.06;
+    if(dist<=sp){anim.x=tx;anim.y=ty;anim.path.shift()}else{anim.x+=dx/dist*sp;anim.y+=dy/dist*sp}anim.walking=true}
+  else{if(anim.path&&anim.path.length){const l=anim.path[anim.path.length-1];anim.x=l[0];anim.y=l[1]}anim.path=null;anim.walking=false;if(anim.onArrive){const f=anim.onArrive;anim.onArrive=null;f()}}
   const v=here();
-  if(v.type==='home')drawHome(t);else drawVenue(t,v);
+  if(v.type==='home')drawHome2(t);else drawVenue(t,v);
 }
 const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function drawAvatar(canvas,look,scale=1.6){const c=canvas.getContext('2d');const r=window.devicePixelRatio||1;canvas.width=canvas.clientWidth*r||140*r;canvas.height=canvas.clientHeight*r||160*r;c.setTransform(r,0,0,r,0,0);c.clearRect(0,0,canvas.width,canvas.height);const w=canvas.width/r,h=canvas.height/r;drawPerson(c,w/2,h-14,look,scale,{t:0})}
@@ -1685,6 +1691,425 @@ function tripStep(t){
   if(u>=1){const d=T.done;CMV.trip=null;setTimeout(d,250)}
 }
 
+/* ---------- UK homes: layouts, furniture, placement, rendering ---------- */
+/* Grid units: 1 unit ≈ 1 metre. Back walls: A runs along y=0, B along x=0. Front is cut away. */
+const LAYOUTS={
+  room:{name:'Room in a shared house',w:6,d:5,
+    rooms:[{id:'bed',n:'Your room',x:0,y:0,w:6,d:5,floor:'carpet',wall:'#EDE3C7',kind:'bed'}],
+    walls:[],
+    win:[{s:'A',a:1.8,l:2,room:'bed'}],door:{s:'B',a:3.4,l:.9,shared:true},
+    fix:[{k:'radiator',s:'A',a:2,l:1.6},{k:'meter',s:'B',a:4.6}],shared:true},
+  hotel:{name:'Hotel room',w:6,d:5,
+    rooms:[{id:'bed',n:'Hotel room',x:0,y:0,w:6,d:5,floor:'carpet2',wall:'#D9D3C4',kind:'bed'}],walls:[],
+    win:[{s:'A',a:1.8,l:2,room:'bed'}],door:{s:'B',a:3.4,l:.9,shared:true},
+    fix:[{k:'radiator',s:'A',a:2,l:1.6},{k:'hotelbed',x:3.5,y:.1,w:1.5,d:2},{k:'tray',x:.1,y:.2,w:1,d:.6}],shared:true,hotel:true},
+  studio:{name:'Studio flat',w:8,d:6,
+    rooms:[{id:'main',n:'Studio',x:0,y:0,w:8,d:6,floor:'laminate',wall:'#EDE3C7',kind:'living'},{id:'bath',n:'Bathroom',x:0,y:3.5,w:2.5,d:2.5,floor:'tiles',wall:'#F2F4F5',kind:'bath'}],
+    walls:[{x1:0,y1:3.5,x2:2.5,y2:3.5},{x1:2.5,y1:3.5,x2:2.5,y2:6,gap:[4.2,5]}],
+    win:[{s:'A',a:4.2,l:2,room:'main'}],door:{s:'B',a:1.8,l:.9},
+    fix:[{k:'units',x:0,y:0,w:2.5,d:.6,along:'A'},{k:'sink',x:.5,y:0},{k:'hob',x:1.5,y:0},{k:'fridge',x:2.5,y:0,w:.7,d:.65},{k:'washer',x:3.2,y:0,w:.6,d:.6},
+      {k:'radiator',s:'A',a:4.4,l:1.6},{k:'bath',x:0,y:3.6,w:.8,d:1.8},{k:'toilet',x:1.6,y:5.2,w:.5,d:.7},{k:'basin',x:1.7,y:3.6,w:.5,d:.4},{k:'boiler',x:7.3,y:0,w:.7,d:.6},{k:'meter',s:'B',a:2.9}]},
+  flat:{name:'One-bed flat',w:10,d:7,
+    rooms:[{id:'liv',n:'Living room and kitchen',x:0,y:0,w:6,d:7,floor:'laminate',wall:'#EDE3C7',kind:'living'},{id:'hall',n:'Hallway',x:6,y:0,w:1.4,d:7,floor:'laminate',wall:'#E6E1D6',kind:'hall'},
+      {id:'bed',n:'Bedroom',x:7.4,y:0,w:2.6,d:4,floor:'carpet',wall:'#DCE3E8',kind:'bed'},{id:'bath',n:'Bathroom',x:7.4,y:4,w:2.6,d:3,floor:'tiles',wall:'#F2F4F5',kind:'bath'}],
+    walls:[{x1:6,y1:0,x2:6,y2:7,gap:[2.6,4.2]},{x1:7.4,y1:0,x2:7.4,y2:4,gap:[1.6,2.5]},{x1:7.4,y1:4,x2:7.4,y2:7,gap:[5,5.9]},{x1:7.4,y1:4,x2:10,y2:4}],
+    win:[{s:'A',a:3,l:2,room:'liv'},{s:'A',a:8,l:1.6,room:'bed'},{s:'B',a:4.2,l:1.8,room:'liv'}],door:{s:'A',a:6.25,l:.9},
+    fix:[{k:'units',x:0,y:0,w:2.6,d:.6,along:'A'},{k:'units',x:0,y:.6,w:.6,d:1.6,along:'B'},{k:'sink',x:1.2,y:0},{k:'hob',x:.1,y:1.2,rot:1},{k:'fridge',x:2.6,y:0,w:.7,d:.65},{k:'washer',x:.6,y:0,w:.6,d:.6},
+      {k:'radiator',s:'A',a:3.2,l:1.6},{k:'radiator',s:'A',a:8.1,l:1.4},{k:'radiator',s:'B',a:4.4,l:1.4},{k:'boiler',x:6.1,y:6.2,w:.8,d:.7},
+      {k:'bath',x:9.15,y:4.1,w:.8,d:1.8},{k:'toilet',x:7.6,y:6.1,w:.5,d:.7},{k:'basin',x:8.4,y:4.05,w:.5,d:.4},{k:'airer',x:6.2,y:4.6,w:1,d:.5},{k:'meter',s:'B',a:.4,inRoom:'liv'}]},
+  house:{name:'Two-bed terraced house',w:12,d:9,
+    rooms:[{id:'kit',n:'Kitchen diner',x:0,y:0,w:6,d:4,floor:'lino',wall:'#EEE6CF',kind:'kitchen'},{id:'liv',n:'Living room',x:0,y:4,w:6,d:5,floor:'carpet',wall:'#E5DCCB',kind:'living'},
+      {id:'hall',n:'Hallway',x:6,y:0,w:1.5,d:9,floor:'laminate',wall:'#E6E1D6',kind:'hall'},{id:'bed',n:'Bedroom',x:7.5,y:0,w:4.5,d:4.5,floor:'carpet',wall:'#DCE3E8',kind:'bed'},
+      {id:'bath',n:'Bathroom',x:7.5,y:4.5,w:2.4,d:2,floor:'tiles',wall:'#F2F4F5',kind:'bath'},{id:'bed2',n:'Box room',x:9.9,y:4.5,w:2.1,d:2,floor:'carpet',wall:'#E8E0D0',kind:'bed'},
+      {id:'gdn',n:'Back garden',x:7.5,y:6.5,w:4.5,d:2.5,floor:'grass',wall:null,kind:'garden'}],
+    walls:[{x1:6,y1:0,x2:6,y2:4,gap:[1.4,2.4]},{x1:6,y1:4,x2:6,y2:9,gap:[6,7]},{x1:0,y1:4,x2:6,y2:4,gap:[2.4,3.6]},{x1:7.5,y1:0,x2:7.5,y2:4.5,gap:[2,2.9]},
+      {x1:7.5,y1:4.5,x2:7.5,y2:6.5,gap:[5,5.9]},{x1:7.5,y1:6.5,x2:7.5,y2:9,gap:[7.3,8.2]},{x1:7.5,y1:4.5,x2:12,y2:4.5,gap:[10.4,11.2]},{x1:9.9,y1:4.5,x2:9.9,y2:6.5},{x1:7.5,y1:6.5,x2:12,y2:6.5,fence:false}],
+    win:[{s:'A',a:2,l:2,room:'kit'},{s:'A',a:8.8,l:2,room:'bed'},{s:'B',a:5.6,l:2,room:'liv'}],door:{s:'A',a:6.3,l:.9},
+    fix:[{k:'units',x:0,y:0,w:2.2,d:.6,along:'A'},{k:'units',x:0,y:.6,w:.6,d:2,along:'B'},{k:'sink',x:1,y:0},{k:'hob',x:.1,y:1.3,rot:1},{k:'fridge',x:4.2,y:0,w:.7,d:.65},{k:'washer',x:.1,y:2.6,w:.6,d:.6},
+      {k:'radiator',s:'A',a:2.2,l:1.6},{k:'radiator',s:'A',a:9,l:1.6},{k:'radiator',s:'B',a:5.8,l:1.6},{k:'boiler',x:6.1,y:3.2,w:.8,d:.7},
+      {k:'bath',x:7.6,y:4.6,w:1.8,d:.8},{k:'toilet',x:9.2,y:5.7,w:.5,d:.7},{k:'basin',x:8.1,y:6,w:.5,d:.4},{k:'washline',x:8.6,y:7.4,w:2.6,d:.2},{k:'shed',x:11,y:7.6,w:.9,d:1.2},{k:'meter',s:'B',a:.3,inRoom:'kit'}],garden:true}};
+
+/* furniture catalogue. size [w,d,h] in metres. fx: comfort, fun, study, cook, homesick, fitness, amb (ambience) */
+const CAT=['Bedroom','Living','Kitchen','Study','Decor','Fitness','Garden'];
+const ITEMS={
+  mattress:{n:'Floor mattress',c:'Bedroom',p:0,sz:[1,2,.22],st:'bed',col:'#B9C3D6',col2:'#E8E1D3',tags:['bed'],fx:{comfort:0},room:'bed',sell:false},
+  single:{n:'Single bed',c:'Bedroom',p:120,sz:[1,2,.5],st:'bed',col:'#8A6A4A',col2:'#5E7FA0',tags:['bed'],fx:{comfort:1,amb:1},room:'bed'},
+  double:{n:'Double bed',c:'Bedroom',p:240,sz:[1.5,2,.55],st:'bed',col:'#6B4A8C',col2:'#C24E36',tags:['bed'],fx:{comfort:2,amb:2},room:'bed'},
+  king:{n:'King bed with storage',c:'Bedroom',p:480,sz:[2,2,.6],st:'bed',col:'#3A3F4A',col2:'#08774C',tags:['bed'],fx:{comfort:3,amb:3},room:'bed'},
+  wardrobe:{n:'Wardrobe',c:'Bedroom',p:160,sz:[1,.6,2],st:'wardrobe',col:'#E8E2D6',tags:['storage'],fx:{amb:1},room:'bed',wall:1},
+  drawers:{n:'Chest of drawers',c:'Bedroom',p:90,sz:[.8,.5,.9],st:'drawers',col:'#A87B4F',fx:{amb:1},room:'bed',wall:1},
+  bedside:{n:'Bedside table and lamp',c:'Bedroom',p:45,sz:[.5,.5,.55],st:'bedside',col:'#A87B4F',tags:['lamp'],fx:{amb:1,comfort:.2},room:'bed'},
+  mirror:{n:'Full-length mirror',c:'Bedroom',p:40,sz:[.5,.15,1.5],st:'mirror',col:'#B9D2E3',tags:['mirror'],fx:{amb:.5},room:'bed',wall:1},
+  blackout:{n:'Blackout curtains',c:'Bedroom',p:45,acc:1,fx:{comfort:.5},d:'Sleep better, even in summer.'},
+  blanket:{n:'Electric blanket',c:'Bedroom',p:35,acc:1,tags:['blanket'],fx:{comfort:.3},d:'Cold snaps no longer ruin your sleep.'},
+  chair:{n:'Folding chair',c:'Living',p:15,sz:[.5,.5,.45],st:'chair',col:'#8A6A4A',tags:['seat'],fx:{},room:'any'},
+  sofa2:{n:'Two-seater sofa',c:'Living',p:180,sz:[1.6,.9,.45],st:'sofa',col:'#5E6B78',tags:['sofa','seat'],fx:{fun:1,amb:2},room:'living',wall:1},
+  corner:{n:'Corner sofa',c:'Living',p:650,sz:[2.4,1.6,.45],st:'corner',col:'#08774C',tags:['sofa','seat'],fx:{fun:2,amb:3},room:'living',wall:1},
+  armchair:{n:'Armchair',c:'Living',p:120,sz:[.9,.9,.45],st:'sofa',col:'#C9921B',tags:['seat'],fx:{fun:.5,amb:1},room:'living'},
+  coffee:{n:'Coffee table',c:'Living',p:60,sz:[1,.6,.4],st:'table',col:'#7A5233',fx:{amb:1},room:'living'},
+  dining:{n:'Dining table and 4 chairs',c:'Living',p:260,sz:[2,1.6,.75],st:'dining',col:'#A87B4F',tags:['dining'],fx:{amb:2},room:'kitchen'},
+  tv43:{n:'43" smart TV and stand',c:'Living',p:260,sz:[1.2,.45,.5],st:'tv',col:'#1B1F1D',tags:['tv'],fx:{fun:2},room:'living',wall:1},
+  tv65:{n:'65" smart TV and stand',c:'Living',p:700,sz:[1.7,.45,.5],st:'tv',col:'#1B1F1D',tags:['tv'],fx:{fun:3.5,amb:1},room:'living',wall:1,big:1},
+  soundbar:{n:'Soundbar',c:'Living',p:150,acc:1,tags:['speaker'],fx:{fun:1},d:'Big sound for films and football.'},
+  console:{n:'Games console',c:'Living',p:420,acc:1,tags:['console'],fx:{fun:2},d:'FIFA nights with the guys.'},
+  speaker:{n:'Bluetooth speaker',c:'Living',p:70,sz:[.4,.4,.7],st:'speaker',col:'#2A2A2A',tags:['speaker'],fx:{fun:1},room:'any'},
+  bookshelf:{n:'Bookshelf',c:'Living',p:80,sz:[.9,.35,1.8],st:'shelf',col:'#7A5233',fx:{amb:1,study:.2},room:'any',wall:1},
+  floorlamp:{n:'Floor lamp',c:'Living',p:45,sz:[.4,.4,1.6],st:'lamp',col:'#2A2A2A',tags:['lamp'],fx:{amb:1},room:'any'},
+  ankara:{n:'Ankara rug',c:'Living',p:40,sz:[2,1.4,0],st:'rug',col:'ankara',floor:1,fx:{homesick:.15,amb:1},room:'living'},
+  persian:{n:'Persian rug',c:'Living',p:120,sz:[2.2,1.6,0],st:'rug',col:'persian',floor:1,fx:{amb:2},room:'living'},
+  freezer:{n:'Chest freezer',c:'Kitchen',p:120,sz:[1,.7,.85],st:'box',col:'#F4F6F5',tags:['freezer'],fx:{cook:.2},room:'kitchen'},
+  microwave:{n:'Microwave',c:'Kitchen',p:60,acc:1,worktop:1,fx:{cook:.2},d:'Reheat jollof in two minutes.'},
+  airfryer:{n:'Air fryer',c:'Kitchen',p:70,acc:1,worktop:1,fx:{cook:.4},d:'Crispy plantain, no oil splashes.'},
+  ricecooker:{n:'Rice cooker',c:'Kitchen',p:35,acc:1,worktop:1,fx:{cook:.3},d:'Perfect rice, every time.'},
+  blender:{n:'Pepper blender',c:'Kitchen',p:45,acc:1,worktop:1,fx:{cook:.4},d:'Blend your own pepper mix for stews.'},
+  pots:{n:'Big party pots',c:'Kitchen',p:50,acc:1,fx:{cook:.4},d:'Jollof for fifty people.'},
+  desk:{n:'Study desk',c:'Study',p:90,sz:[1.2,.6,.75],st:'desk',col:'#A87B4F',tags:['desk'],fx:{study:1},room:'any',wall:1},
+  officechair:{n:'Office chair',c:'Study',p:80,acc:1,fx:{study:.4},d:'Your back will thank you.'},
+  laptop:{n:'Laptop',c:'Study',p:500,acc:1,tags:['laptop'],fx:{study:1},d:'Faster studying and job applications.'},
+  ringlight:{n:'Ring light and tripod',c:'Study',p:60,sz:[.4,.4,1.5],st:'ring',col:'#EDEDED',tags:['ringlight'],fx:{},room:'any'},
+  photos:{n:'Family photo wall',c:'Decor',p:25,wallItem:1,st:'photos',tags:['photos'],fx:{homesick:.25,amb:1}},
+  art:{n:'Nigerian wall art',c:'Decor',p:60,wallItem:1,st:'art',fx:{homesick:.1,amb:1.5}},
+  flag:{n:'Nigeria flag',c:'Decor',p:15,wallItem:1,st:'flag',fx:{homesick:.1,amb:.5}},
+  clock:{n:'Wall clock',c:'Decor',p:20,wallItem:1,st:'clock',fx:{amb:.5}},
+  plant:{n:'House plant',c:'Decor',p:20,sz:[.4,.4,.6],st:'plant',col:'#2F8F4E',tags:['plants'],fx:{amb:.5,fun:.2},room:'any'},
+  bigplant:{n:'Big monstera plant',c:'Decor',p:45,sz:[.6,.6,1.3],st:'bigplant',col:'#2F8F4E',tags:['plants'],fx:{amb:1,fun:.3},room:'any'},
+  fairy:{n:'Fairy lights',c:'Decor',p:15,acc:1,fx:{amb:1,fun:.2},d:'Cosy glow at night.'},
+  bike:{n:'Exercise bike',c:'Fitness',p:250,sz:[.6,1.2,1.1],st:'bike',col:'#2A2A2A',tags:['fitness'],fx:{fitness:1},room:'any'},
+  weights:{n:'Dumbbells and mat',c:'Fitness',p:40,sz:[.7,1.6,0],st:'mat',col:'#2B5BA8',floor:1,tags:['fitness'],fx:{fitness:.5},room:'any'},
+  bbq:{n:'BBQ grill',c:'Garden',p:120,sz:[.8,.6,.9],st:'bbq',col:'#1B1F1D',tags:['bbq'],fx:{amb:1},room:'garden'},
+  gchairs:{n:'Garden table and chairs',c:'Garden',p:90,sz:[1.6,1.6,.7],st:'dining',col:'#E8E2D6',fx:{amb:1},room:'garden'}};
+
+/* ---------- state + migration ---------- */
+function homeDef(){return CITIES[S.city].homes.find(h=>h.id===S.home)}
+function layoutKey(){const h=homeDef();return h.layout||(h.hotel?'hotel':h.shared?'room':'studio')}
+const LAY=()=>LAYOUTS[layoutKey()];
+function ensureItems(){
+  if(S.items)return;
+  S.items=[];S.store=[];S.acc=[];S.uid=1;
+  const map={mattress:'mattress',bed:'double',chair:'chair',sofa:'sofa2',tv:'tv43',desk:'desk',photos:'photos',plants:'plant',speaker:'speaker',ringlight:'ringlight',blanket:'blanket',freezer:'freezer',rug:'ankara'};
+  (S.furn||['mattress','chair']).forEach(k=>{const m=map[k];if(!m)return;if(m==='mattress'&&(S.furn||[]).includes('bed'))return;giveItem(m,true)});
+  if(!S.items.length&&!S.store.length){giveItem('mattress',true);giveItem('chair',true)}
+}
+function giveItem(k,silent){
+  const I=ITEMS[k];
+  if(I.acc){S.acc.push(k);return 'acc'}
+  const it={u:S.uid++,k,rot:0};
+  if(LAY().hotel){S.store.push(it);return 'store'}
+  const pos=autoPlace(it);
+  if(pos){Object.assign(it,pos);S.items.push(it);return 'placed'}
+  S.store.push(it);return 'store';
+}
+const ownTag=t=>S.items.some(it=>(ITEMS[it.k].tags||[]).includes(t))||S.acc.some(k=>(ITEMS[k].tags||[]).includes(t));
+function homeFx(){
+  const f={comfort:0,fun:0,study:0,cook:0,homesick:0,fitness:0,amb:0};let bed=0;
+  const cnt={};[...S.items.map(i=>i.k),...new Set(S.acc)].forEach(k=>{cnt[k]=(cnt[k]||0)+1;if(cnt[k]>2)return;const x=ITEMS[k].fx||{};for(const q in x){if(q==='comfort'&&(ITEMS[k].tags||[]).includes('bed'))bed=Math.max(bed,x[q]);else f[q]+=x[q]*(cnt[k]===2?.5:1)}});
+  f.comfort=Math.min(1.3,f.comfort);
+  if(LAY().hotel)bed=Math.max(bed,1);
+  f.comfort+=bed;f.amb+=({room:0,hotel:0,studio:2,flat:4,house:6}[layoutKey()]||0);
+  return f;
+}
+const homeStars=()=>Math.max(1,Math.min(5,Math.round(1+homeFx().amb/7)));
+
+/* ---------- geometry ---------- */
+const CELL=.5;
+function itemSize(it){const I=ITEMS[it.k];const [w,d,h]=I.sz;return it.rot?[d,w,h]:[w,d,h]}
+function roomAt(x,y,L=LAY()){let r=null;L.rooms.forEach(R=>{if(x>=R.x&&x<R.x+R.w&&y>=R.y&&y<R.y+R.d)r=R});return r}
+function fixRect(f){const s={units:[f.w,f.d],sink:[.6,.6],hob:[.6,.6],fridge:[f.w||.7,f.d||.65],washer:[.6,.6],bath:[f.w||.8,f.d||1.8],toilet:[f.w||.5,f.d||.7],basin:[f.w||.5,f.d||.4],boiler:[f.w||.7,f.d||.6],airer:[f.w||1,f.d||.5],washline:[f.w,f.d],shed:[f.w,f.d],hotelbed:[f.w,f.d],tray:[f.w,f.d]}[f.k];
+  if(!s)return null;let [w,d]=s;if(f.rot&&['sink','hob'].includes(f.k))[w,d]=[d,w];return {x:f.x,y:f.y,w,d}}
+function wallSegs(L){const out=[];L.walls.forEach(W=>{const hor=W.y1===W.y2;const a=hor?W.x1:W.y1,b=hor?W.x2:W.y2;
+  const parts=W.gap?[[a,W.gap[0]],[W.gap[1],b]]:[[a,b]];parts.forEach(([p,q])=>{if(q-p>.01)out.push(hor?{x1:p,y1:W.y1,x2:q,y2:W.y1}:{x1:W.x1,y1:p,x2:W.x1,y2:q})})});return out}
+function blockGrid(exceptU){
+  const L=LAY(),nx=Math.round(L.w/CELL),ny=Math.round(L.d/CELL),g=[];
+  for(let i=0;i<nx;i++){g[i]=[];for(let j=0;j<ny;j++)g[i][j]=0}
+  const mark=(x,y,w,d,v=1)=>{for(let i=Math.floor(x/CELL+.001);i<Math.ceil((x+w)/CELL-.001);i++)for(let j=Math.floor(y/CELL+.001);j<Math.ceil((y+d)/CELL-.001);j++)if(i>=0&&j>=0&&i<nx&&j<ny)g[i][j]=v};
+  L.fix.forEach(f=>{const r=fixRect(f);if(r&&f.k!=='washline')mark(r.x,r.y,r.w,r.d)});
+  S.items.forEach(it=>{if(it.u===exceptU||ITEMS[it.k].floor||ITEMS[it.k].wallItem)return;const [w,d]=itemSize(it);mark(it.x,it.y,w,d)});
+  return {g,nx,ny,mark};
+}
+function wallBetween(ax,ay,bx,by,segs){ // cells centres, check crossing a wall segment
+  const mx=(ax+bx)/2,my=(ay+by)/2;
+  return segs.some(s=>{if(s.y1===s.y2){return ay!==by&&Math.abs(my-s.y1)<.01&&mx>=s.x1-.01&&mx<=s.x2+.01}return ax!==bx&&Math.abs(mx-s.x1)<.01&&my>=s.y1-.01&&my<=s.y2+.01});
+}
+function cellPath(from,to,grid){
+  const {g,nx,ny}=grid||blockGrid(),segs=wallSegs(LAY());
+  const c=p=>[Math.max(0,Math.min(nx-1,Math.floor(p[0]/CELL))),Math.max(0,Math.min(ny-1,Math.floor(p[1]/CELL)))];
+  const [si,sj]=c(from),[ti,tj]=c(to);const key=(i,j)=>i*100+j;const prev=new Map([[key(si,sj),null]]);const q=[[si,sj]];
+  while(q.length){const [i,j]=q.shift();if(i===ti&&j===tj)break;
+    for(const [di,dj] of [[1,0],[-1,0],[0,1],[0,-1]]){const a=i+di,b=j+dj;if(a<0||b<0||a>=nx||b>=ny)continue;const k=key(a,b);if(prev.has(k))continue;
+      if(g[a][b]&&!(a===ti&&b===tj))continue;if(wallBetween((i+.5)*CELL,(j+.5)*CELL,(a+.5)*CELL,(b+.5)*CELL,segs))continue;prev.set(k,[i,j]);q.push([a,b])}}
+  if(!prev.has(key(ti,tj)))return [to];
+  const out=[];let cur=[ti,tj];while(cur){out.unshift([(cur[0]+.5)*CELL,(cur[1]+.5)*CELL]);cur=prev.get(key(...cur))}return out;
+}
+function reachableCount(grid){const {g,nx,ny}=grid,segs=wallSegs(LAY()),st=doorCell();const seen=new Set([st[0]*100+st[1]]),q=[st];
+  while(q.length){const [i,j]=q.shift();for(const [di,dj] of [[1,0],[-1,0],[0,1],[0,-1]]){const a=i+di,b=j+dj;if(a<0||b<0||a>=nx||b>=ny||g[a][b])continue;const k=a*100+b;if(seen.has(k))continue;if(wallBetween((i+.5)*CELL,(j+.5)*CELL,(a+.5)*CELL,(b+.5)*CELL,segs))continue;seen.add(k);q.push([a,b])}}
+  return seen.size}
+function doorPos(){const L=LAY(),D=L.door;return D.s==='A'?[D.a+D.l/2,.25]:[.25,D.a+D.l/2]}
+function doorCell(){const p=doorPos();return [Math.floor(p[0]/CELL),Math.floor(p[1]/CELL)]}
+function fits(it,x,y,rot,grid){
+  const L=LAY(),I=ITEMS[it.k];const [w,d]=rot?[I.sz[1],I.sz[0]]:[I.sz[0],I.sz[1]];
+  if(x<0||y<0||x+w>L.w+.001||y+d>L.d+.001)return false;
+  const r=roomAt(x+.01,y+.01);if(!r||x+w>r.x+r.w+.001||y+d>r.y+r.d+.001)return false;
+  if(r.kind==='garden'&&I.room!=='garden'&&I.room!=='any')return false;
+  if(I.room==='garden'&&r.kind!=='garden')return false;
+  if(r.kind==='bath')return false;
+  if(I.floor)return true;
+  const {g,nx,ny}=grid;
+  for(let i=Math.floor(x/CELL+.001);i<Math.ceil((x+w)/CELL-.001);i++)for(let j=Math.floor(y/CELL+.001);j<Math.ceil((y+d)/CELL-.001);j++){if(i<0||j<0||i>=nx||j>=ny||g[i][j])return false}
+  // keep 1 cell clear around door, and don't cut the home in two
+  const dc=doorCell();if(Math.abs(dc[0]-Math.floor((x+w/2)/CELL))<=Math.ceil(w/CELL/2)+1&&Math.abs(dc[1]-Math.floor((y+d/2)/CELL))<=Math.ceil(d/CELL/2)+1)return false;
+  const before=reachableCount(grid);const g2={...grid,g:grid.g.map(c=>[...c])};let n=0;
+  for(let i=Math.floor(x/CELL+.001);i<Math.ceil((x+w)/CELL-.001);i++)for(let j=Math.floor(y/CELL+.001);j<Math.ceil((y+d)/CELL-.001);j++){g2.g[i][j]=1;n++}
+  return reachableCount(g2)>=before-n;
+}
+function autoPlace(it){
+  const L=LAY(),I=ITEMS[it.k],grid=blockGrid(it.u);
+  if(I.wallItem){const spots=wallSpots();const used=S.items.filter(x=>ITEMS[x.k].wallItem).map(x=>x.wall+':'+x.at);const s=spots.find(p=>!used.includes(p.s+':'+p.a));return s?{wall:s.s,at:s.a}:null}
+  const pref=L.rooms.filter(r=>I.room==='any'?r.kind!=='bath'&&r.kind!=='hall':r.kind===I.room||(I.room==='kitchen'&&r.kind==='living'&&!L.rooms.some(q=>q.kind==='kitchen'))||(I.room==='living'&&r.kind==='bed'&&!L.rooms.some(q=>q.kind==='living')));
+  const rooms=pref.length?pref:L.rooms.filter(r=>r.kind!=='bath'&&r.kind!=='hall'&&r.kind!=='garden');
+  for(const rot of [0,1])for(const R of rooms){
+    const cands=[];for(let x=R.x;x<R.x+R.w;x+=CELL)for(let y=R.y;y<R.y+R.d;y+=CELL)cands.push([x,y]);
+    cands.sort((a,b)=>I.wall?(Math.min(a[0]-R.x,a[1]-R.y)-Math.min(b[0]-R.x,b[1]-R.y))||(a[0]+a[1]-b[0]-b[1]):(a[0]+a[1]-b[0]-b[1]));
+    for(const [x,y] of cands)if(fits(it,x,y,rot,grid))return {x,y,rot};
+  }
+  return null;
+}
+function wallSpots(){const L=LAY(),out=[];
+  ['A','B'].forEach(s=>{const len=s==='A'?L.w:L.d;for(let a=.3;a<len-.6;a+=.8){const busy=L.win.some(w=>w.s===s&&a+.6>w.a-.1&&a<w.a+w.l+.1)||(L.door.s===s&&a+.6>L.door.a-.1&&a<L.door.a+L.door.l+.1);
+    const x=s==='A'?a+.3:0,y=s==='A'?0:a+.3;const r=roomAt(s==='A'?x:.1,s==='A'?.1:y);if(busy||!r||r.kind==='bath'||r.kind==='garden')continue;out.push({s,a})}});return out}
+function useSpot(it){
+  const [w,d]=itemSize(it),grid=blockGrid(),segs=wallSegs(LAY());const cands=[];
+  for(let x=it.x-CELL;x<=it.x+w;x+=CELL)for(let y=it.y-CELL;y<=it.y+d;y+=CELL){const inside=x>=it.x-.01&&x<it.x+w-.01&&y>=it.y-.01&&y<it.y+d-.01;if(inside)continue;
+    const i=Math.floor(x/CELL+.001),j=Math.floor(y/CELL+.001);if(i<0||j<0||i>=grid.nx||j>=grid.ny||grid.g[i][j])continue;cands.push([x+CELL/2,y+CELL/2,(x+y)])}
+  cands.sort((a,b)=>b[2]-a[2]);return cands[0]?[cands[0][0],cands[0][1]]:doorPos();
+}
+function fixSpot(k){const f=LAY().fix.find(x=>x.k===k);if(!f)return null;const r=fixRect(f);return useSpotRect(r)}
+function useSpotRect(r){const grid=blockGrid();let best=null;
+  for(const [x,y] of [[r.x+r.w/2,r.y+r.d+.25],[r.x+r.w+.25,r.y+r.d/2],[r.x+r.w/2,r.y-.25],[r.x-.25,r.y+r.d/2]]){const i=Math.floor(x/CELL),j=Math.floor(y/CELL);if(i>=0&&j>=0&&i<grid.nx&&j<grid.ny&&!grid.g[i][j]){best=[x,y];break}}
+  return best||doorPos()}
+function spotForTag(tag){
+  if(['cooker','toilet','bath','basin','washer','fridge'].includes(tag)){const fk={cooker:'hob',toilet:'toilet',bath:'bath',basin:'basin',washer:'washer',fridge:'fridge'}[tag];return fixSpot(fk)||doorPos()}
+  const it=S.items.find(i=>(ITEMS[i.k].tags||[]).includes(tag)&&!ITEMS[i.k].wallItem);if(it)return useSpot(it);
+  if(tag==='bed'&&LAY().hotel){const f=LAY().fix.find(x=>x.k==='hotelbed');return useSpotRect(fixRect(f))}
+  return idleSpot();
+}
+function idleSpot(){const L=LAY(),R=L.rooms.find(r=>r.kind==='living')||L.rooms[0];const grid=blockGrid();
+  for(let k=0;k<40;k++){const x=R.x+R.w/2+((k%5)-2)*CELL,y=R.y+R.d/2+(Math.floor(k/5)-2)*CELL;const i=Math.floor(x/CELL),j=Math.floor(y/CELL);if(i>=0&&j>=0&&i<grid.nx&&j<grid.ny&&!grid.g[i][j])return [x,y]}return doorPos()}
+
+/* ---------- rendering ---------- */
+let HV={tw:48,th:24,zh:30,ox:180,oy:74};
+function hIso(x,y,z=0){return [HV.ox+(x-y)*HV.tw/2,HV.oy+(x+y)*HV.th/2-z*HV.zh]}
+function hPoly(c,pts,fill,stroke,lw=1){c.beginPath();pts.forEach(([x,y],k)=>k?c.lineTo(x,y):c.moveTo(x,y));c.closePath();if(fill){c.fillStyle=fill;c.fill()}if(stroke){c.strokeStyle=stroke;c.lineWidth=lw;c.stroke()}}
+function hBox(c,x,y,w,d,h,col,top,z0=0){
+  hPoly(c,[hIso(x,y+d,z0+h),hIso(x+w,y+d,z0+h),hIso(x+w,y+d,z0),hIso(x,y+d,z0)],shade(col,.88));
+  hPoly(c,[hIso(x+w,y,z0+h),hIso(x+w,y+d,z0+h),hIso(x+w,y+d,z0),hIso(x+w,y,z0)],shade(col,.74));
+  hPoly(c,[hIso(x,y,z0+h),hIso(x+w,y,z0+h),hIso(x+w,y+d,z0+h),hIso(x,y+d,z0+h)],top||shade(col,1.07));
+}
+const WALLH=2.3;
+function fitView(L){const W=360,H=230;const tw=Math.min(52,(W-20)/((L.w+L.d)/2));HV.tw=tw;HV.th=tw/2;HV.zh=tw*.6;
+  const top=-WALLH*HV.zh,bottom=(L.w+L.d)*HV.th/2;HV.ox=W/2-(L.w-L.d)*tw/4;HV.oy=H/2-(top+bottom)/2+4}
+function wallPt(s,a,z){return s==='A'?hIso(a,0,z):hIso(0,a,z)}
+function wallQuad(s,a,b,z0,z1){return [wallPt(s,a,z0),wallPt(s,b,z0),wallPt(s,b,z1),wallPt(s,a,z1)]}
+function floorPattern(c,R,k){
+  const q=[hIso(R.x,R.y),hIso(R.x+R.w,R.y),hIso(R.x+R.w,R.y+R.d),hIso(R.x,R.y+R.d)];
+  const base={carpet:'#8E9298',carpet2:'#7A6E66',laminate:'#B38A5E',tiles:'#E6E8EA',lino:'#D6CFC0',grass:'#7FB069'}[R.floor]||'#AAA';
+  hPoly(c,q,base);c.save();c.beginPath();q.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.closePath();c.clip();
+  if(R.floor==='laminate'){c.strokeStyle='rgba(60,35,15,.22)';c.lineWidth=.8;for(let y=R.y;y<R.y+R.d;y+=.2){c.beginPath();c.moveTo(...hIso(R.x,y));c.lineTo(...hIso(R.x+R.w,y));c.stroke()}
+    for(let y=R.y;y<R.y+R.d;y+=.2)for(let x=R.x+((y*10)%3)*.4;x<R.x+R.w;x+=1.2){c.beginPath();c.moveTo(...hIso(x,y));c.lineTo(...hIso(x,y+.2));c.stroke()}}
+  if(R.floor==='tiles'||R.floor==='lino'){c.strokeStyle=R.floor==='tiles'?'rgba(120,130,140,.35)':'rgba(120,100,70,.25)';c.lineWidth=.7;const st=R.floor==='tiles'?.3:.5;
+    for(let x=R.x;x<=R.x+R.w;x+=st){c.beginPath();c.moveTo(...hIso(x,R.y));c.lineTo(...hIso(x,R.y+R.d));c.stroke()}for(let y=R.y;y<=R.y+R.d;y+=st){c.beginPath();c.moveTo(...hIso(R.x,y));c.lineTo(...hIso(R.x+R.w,y));c.stroke()}}
+  if(R.floor==='carpet'||R.floor==='carpet2'){const rr=cyRng?cyRng(R.x*31+R.y*7+5):Math.random;c.fillStyle='rgba(255,255,255,.07)';for(let k2=0;k2<R.w*R.d*14;k2++){const [x,y]=hIso(R.x+rr()*R.w,R.y+rr()*R.d);c.fillRect(x,y,1,1)}}
+  if(R.floor==='grass'){c.fillStyle='rgba(40,90,30,.25)';const rr=cyRng(9);for(let k2=0;k2<R.w*R.d*20;k2++){const [x,y]=hIso(R.x+rr()*R.w,R.y+rr()*R.d);c.fillRect(x,y-1.5,1,2)}}
+  c.restore();
+}
+function windowView(c,q,t){
+  const [s1,s2]=skyCol();const g=c.createLinearGradient(0,q[2][1],0,q[0][1]);g.addColorStop(0,s1);g.addColorStop(1,s2);hPoly(c,q,g);
+  c.save();c.beginPath();q.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.closePath();c.clip();
+  // terraced houses opposite
+  const minx=Math.min(...q.map(p=>p[0])),maxx=Math.max(...q.map(p=>p[0])),maxy=Math.max(...q.map(p=>p[1]));
+  const night=S.hour<6.5||S.hour>=19.5;
+  for(let x=minx-8;x<maxx+8;x+=16){c.fillStyle=night?'#3A2A26':'#9A5A44';c.fillRect(x,maxy-20,15,20);c.fillStyle=night?'#2A1E1B':'#5A4036';c.beginPath();c.moveTo(x-1,maxy-20);c.lineTo(x+7.5,maxy-27);c.lineTo(x+16,maxy-20);c.fill();c.fillRect(x+10,maxy-31,3,7);
+    c.fillStyle=night?((x*7)%3?'#FFD27A':'#2A3456'):'#C9D6DF';c.fillRect(x+3,maxy-15,4,5);c.fillRect(x+9,maxy-15,4,5)}
+  if(S.weather==='Drizzle'||S.weather==='Cold snap'){c.strokeStyle=S.weather==='Cold snap'?'#fff':'#5C7A8C';c.lineWidth=1;for(let i=0;i<16;i++){const xx=minx+((i*13+t/12)%(maxx-minx+10))-4,yy=Math.min(...q.map(p=>p[1]))+((i*29+t/7)%60);c.beginPath();c.moveTo(xx,yy);c.lineTo(xx-2,yy+5);c.stroke()}}
+  c.restore();
+}
+function drawWallsAndWindows(c,L,t){
+  const H=WALLH;
+  // wall faces per room along A and B
+  L.rooms.forEach(R=>{if(!R.wall)return;
+    if(R.y===0)hPoly(c,wallQuad('A',R.x,R.x+R.w,0,H),R.wall);
+    if(R.x===0)hPoly(c,wallQuad('B',R.y,R.y+R.d,0,H),shade(R.wall,.9));
+    if(R.kind==='bath'){c.strokeStyle='rgba(150,160,170,.45)';c.lineWidth=.6;['A','B'].forEach(s=>{if((s==='A'&&R.y!==0)||(s==='B'&&R.x!==0))return;const a0=s==='A'?R.x:R.y,a1=a0+(s==='A'?R.w:R.d);for(let z=0;z<=1.4;z+=.25){c.beginPath();c.moveTo(...wallPt(s,a0,z));c.lineTo(...wallPt(s,a1,z));c.stroke()}for(let a=a0;a<=a1;a+=.25){c.beginPath();c.moveTo(...wallPt(s,a,0));c.lineTo(...wallPt(s,a,1.4));c.stroke()}})}
+  });
+  // garden: fence instead of wall
+  L.rooms.filter(R=>R.kind==='garden').forEach(R=>{for(let x=R.x;x<=R.x+R.w;x+=.25){const [a,b]=hIso(x,R.y+R.d,0),[a2,b2]=hIso(x,R.y+R.d,.9);c.strokeStyle='#8A6A4A';c.lineWidth=2;c.beginPath();c.moveTo(a,b);c.lineTo(a2,b2);c.stroke()}
+    for(let y=R.y;y<=R.y+R.d;y+=.25){const [a,b]=hIso(R.x+R.w,y,0),[a2,b2]=hIso(R.x+R.w,y,.9);c.strokeStyle='#7A5A3A';c.lineWidth=2;c.beginPath();c.moveTo(a,b);c.lineTo(a2,b2);c.stroke()}});
+  // skirting
+  ['A','B'].forEach(s=>{const len=s==='A'?L.w:L.d;L.rooms.forEach(R=>{if(!R.wall||R.kind==='bath')return;if(s==='A'&&R.y!==0)return;if(s==='B'&&R.x!==0)return;const a0=s==='A'?R.x:R.y,a1=a0+(s==='A'?R.w:R.d);hPoly(c,wallQuad(s,a0,a1,0,.1),'#F7F5F0')})});
+  // splashback tiles above kitchen units
+  L.fix.filter(f=>f.k==='units').forEach(f=>{const s=f.along;const a0=s==='A'?f.x:f.y,a1=a0+(s==='A'?f.w:f.d);hPoly(c,wallQuad(s,a0,a1,.92,1.45),'#F0F2F3');c.strokeStyle='rgba(120,130,140,.4)';c.lineWidth=.5;for(let a=a0;a<=a1;a+=.2){c.beginPath();c.moveTo(...wallPt(s,a,.92));c.lineTo(...wallPt(s,a,1.45));c.stroke()}
+    hBox(c,s==='A'?f.x:0,s==='A'?0:f.y,s==='A'?f.w:.35,s==='A'?.35:f.d,.6,'#E8E2D6',null,1.55)});
+  // windows
+  L.win.forEach(Wn=>{const q=wallQuad(Wn.s,Wn.a,Wn.a+Wn.l,.95,2.0);windowView(c,q,t);hPoly(c,q,null,'#F7F7F7',3);
+    const mid=[wallPt(Wn.s,Wn.a+Wn.l/2,.95),wallPt(Wn.s,Wn.a+Wn.l/2,2.0)];c.strokeStyle='#F7F7F7';c.lineWidth=2.5;c.beginPath();c.moveTo(...mid[0]);c.lineTo(...mid[1]);c.stroke();
+    hPoly(c,wallQuad(Wn.s,Wn.a-.05,Wn.a+Wn.l+.05,.88,.95),'#FAFAFA'); // sill
+    const hasBlack=S.acc.includes('blackout');
+    if(hasBlack){hPoly(c,wallQuad(Wn.s,Wn.a-.25,Wn.a+.15,.9,2.15),'#3A3F55');hPoly(c,wallQuad(Wn.s,Wn.a+Wn.l-.15,Wn.a+Wn.l+.25,.9,2.15),'#3A3F55')}
+    else{c.fillStyle='rgba(255,255,255,.35)';const nq=wallQuad(Wn.s,Wn.a+.05,Wn.a+Wn.l-.05,.95,1.35);hPoly(c,nq,'rgba(255,255,255,.4)')} // net curtain
+    // light from window in daytime
+    if(S.hour>=8&&S.hour<17&&S.weather==='Sunny spell'){c.fillStyle='rgba(255,236,170,.13)';const s=Wn.s;const p1=wallPt(s,Wn.a,.95),p2=wallPt(s,Wn.a+Wn.l,.95),f1=s==='A'?hIso(Wn.a+.8,2.2):hIso(2.2,Wn.a+.8),f2=s==='A'?hIso(Wn.a+Wn.l+.8,2.2):hIso(2.2,Wn.a+Wn.l+.8);hPoly(c,[p1,p2,f2,f1],'rgba(255,236,170,.12)')}
+  });
+  // front door
+  const D=L.door;const dq=wallQuad(D.s,D.a,D.a+D.l,0,2.0);hPoly(c,dq,D.shared?'#C9B79C':'#2B3A48');hPoly(c,dq,null,'#F7F7F7',2);
+  if(!D.shared){const lb=wallQuad(D.s,D.a+.25,D.a+.65,.95,1.02);hPoly(c,lb,'#C9921B');const gl=wallQuad(D.s,D.a+.25,D.a+.65,1.4,1.85);hPoly(c,gl,'#9FB6CC')}
+  const [kx,ky]=wallPt(D.s,D.a+D.l-.15,1);c.fillStyle='#C9921B';c.beginPath();c.arc(kx,ky,1.8,0,7);c.fill();
+
+  // light switch + socket
+  const ls=wallPt(D.s,D.a+D.l+.2,1.15);c.fillStyle='#FAFAFA';c.fillRect(ls[0]-2,ls[1]-3,4,5);c.strokeStyle='#bbb';c.lineWidth=.5;c.strokeRect(ls[0]-2,ls[1]-3,4,5);
+  // wall-mounted fixtures: radiators, meter
+  L.fix.forEach(f=>{
+    if(f.k==='radiator'){const q=wallQuad(f.s,f.a,f.a+f.l,.15,.7);hPoly(c,q,'#F4F4F2','#D8D8D4',.8);c.strokeStyle='#DADAD6';c.lineWidth=.6;for(let a=f.a+.08;a<f.a+f.l;a+=.08){c.beginPath();c.moveTo(...wallPt(f.s,a,.18));c.lineTo(...wallPt(f.s,a,.67));c.stroke()}}
+    if(f.k==='meter'){const q=wallQuad(f.s,f.a,f.a+.3,1.5,1.85);hPoly(c,q,S.meterOff?'#C24E36':'#E8E2D6','#999',.6)}
+  });
+}
+function drawFixture(c,f,t){
+  const r=fixRect(f);if(!r)return;const {x,y,w,d}=r;
+  switch(f.k){
+    case 'units':hBox(c,x,y,w,d,.88,'#E8E2D6','#5A4A3A');for(let a=0;a<(f.along==='A'?w:d)-.05;a+=.6){const q=f.along==='A'?[hIso(x+a+.04,y+d,.08),hIso(x+a+.56,y+d,.08),hIso(x+a+.56,y+d,.82),hIso(x+a+.04,y+d,.82)]:[hIso(x+w,y+a+.04,.08),hIso(x+w,y+a+.56,.08),hIso(x+w,y+a+.56,.82),hIso(x+w,y+a+.04,.82)];hPoly(c,q,null,'rgba(0,0,0,.18)',.6)}
+      // worktop gadgets
+      if(f.along==='A'){const gadgets=S.acc.filter(k=>ITEMS[k].worktop);gadgets.forEach((k,i)=>{const gx=x+.2+i*.45;if(gx+.3>x+w)return;hBox(c,gx,y+.08,.32,.3,k==='blender'?.4:.25,{microwave:'#2A2A2A',airfryer:'#1B1F1D',ricecooker:'#F4F4F2',blender:'#C9D6DF'}[k]||'#888',null,.88)});
+        const [kx,ky]=hIso(x+w-.35,y+.25,.88);c.fillStyle='#C24E36';c.fillRect(kx-3,ky-7,6,7);}
+      break;
+    case 'sink':{const [w2,d2]=[r.w,r.d];hPoly(c,[hIso(x+.08,y+.08,.89),hIso(x+w2-.08,y+.08,.89),hIso(x+w2-.08,y+d2-.08,.89),hIso(x+.08,y+d2-.08,.89)],'#C9CED3');const [tx,ty]=hIso(x+w2/2,y+.08,.89);c.strokeStyle='#999';c.lineWidth=1.5;c.beginPath();c.moveTo(tx,ty);c.lineTo(tx,ty-7);c.lineTo(tx+3,ty-6);c.stroke();break}
+    case 'hob':hPoly(c,[hIso(x+.05,y+.05,.9),hIso(x+r.w-.05,y+.05,.9),hIso(x+r.w-.05,y+r.d-.05,.9),hIso(x+.05,y+r.d-.05,.9)],'#1B1F1D');[[.18,.18],[.42,.18],[.18,.42],[.42,.42]].forEach(([a,b])=>{const [px,py]=hIso(x+a,y+b,.91);c.strokeStyle=S.meterOff?'#444':'#666';c.lineWidth=.8;c.beginPath();c.ellipse(px,py,HV.tw*.07,HV.tw*.035,0,0,7);c.stroke()});break;
+    case 'fridge':hBox(c,x,y,w,d,1.8,'#E9ECEE');{const q=[hIso(x,y+d,1.1),hIso(x+w,y+d,1.1)];c.strokeStyle='#bbb';c.lineWidth=.7;c.beginPath();c.moveTo(...q[0]);c.lineTo(...q[1]);c.stroke()}break;
+    case 'washer':hBox(c,x,y,w,d,.85,'#F2F3F4');{const [px,py]=hIso(x+w/2,y+d,.45);c.fillStyle='#9FB6CC';c.beginPath();c.ellipse(px,py+1,HV.tw*.12,HV.tw*.12,0,0,7);c.fill();c.strokeStyle='#bbb';c.stroke()}break;
+    case 'boiler':hBox(c,x,y,w,d,2,'#EDE7DA');{const [px,py]=hIso(x+w/2,y+d,1.2);c.fillStyle='#bbb';c.fillRect(px-2,py-2,4,4)}break;
+    case 'bath':hBox(c,x,y,w,d,.55,'#F7F8F8');hPoly(c,[hIso(x+.08,y+.08,.56),hIso(x+w-.08,y+.08,.56),hIso(x+w-.08,y+d-.08,.56),hIso(x+.08,y+d-.08,.56)],'#BFD8E8');
+      {const sx=x+w/2,sy=y+.05;const [a,b]=hIso(sx,sy,1.9),[a2,b2]=hIso(sx,sy,.56);c.strokeStyle='#C9CED3';c.lineWidth=1.5;c.beginPath();c.moveTo(a2,b2);c.lineTo(a,b);c.stroke();c.fillStyle='#C9CED3';c.beginPath();c.arc(a,b,2.5,0,7);c.fill();
+       hPoly(c,[hIso(x,y+d*.45,.56),hIso(x+w,y+d*.45,.56),hIso(x+w,y+d*.45,1.8),hIso(x,y+d*.45,1.8)],'rgba(200,225,240,.35)','rgba(255,255,255,.6)',.6)}break;
+    case 'toilet':hBox(c,x+.05,y,w-.1,.2,.75,'#F7F8F8');hBox(c,x+.05,y+.2,w-.1,d-.25,.4,'#F7F8F8','#EDEFF0');break;
+    case 'basin':hBox(c,x+.15,y+.1,w-.3,d-.15,.6,'#E8EAEC');hBox(c,x,y,w,d,.12,'#F7F8F8','#BFD8E8',.72);{const q=[hIso(x,y,1.1),hIso(x+w,y,1.1),hIso(x+w,y,1.6),hIso(x,y,1.6)];hPoly(c,q,'#CFE3EE','#bbb',.6)}break;
+    case 'airer':{const z=.8;c.strokeStyle='#bbb';c.lineWidth=1;[[0,0],[w,0],[0,d],[w,d]].forEach(([a,b])=>{c.beginPath();c.moveTo(...hIso(x+a,y+b,0));c.lineTo(...hIso(x+a,y+b,z));c.stroke()});
+      ['#C24E36','#2B5BA8','#F2B705','#fff','#08774C'].forEach((col,i)=>{const a=x+.1+i*(w-.2)/5;hPoly(c,[hIso(a,y+.05,z),hIso(a+.15,y+.05,z),hIso(a+.15,y+d-.05,z-.35),hIso(a,y+d-.05,z-.35)],col)})}break;
+    case 'washline':{const [a,b]=hIso(x,y,1.6),[a2,b2]=hIso(x+w,y,1.6);c.strokeStyle='#ddd';c.lineWidth=1;c.beginPath();c.moveTo(a,b);c.lineTo(a2,b2);c.stroke();[[x,y],[x+w,y]].forEach(([p,q2])=>{c.strokeStyle='#888';c.lineWidth=1.5;c.beginPath();c.moveTo(...hIso(p,q2,0));c.lineTo(...hIso(p,q2,1.65));c.stroke()});
+      ['#C24E36','#fff','#2B5BA8','#F2B705','#6A2C91'].forEach((col,i)=>{const p=x+.3+i*.45;hPoly(c,[hIso(p,y,1.6),hIso(p+.3,y,1.6),hIso(p+.3,y,1.15),hIso(p,y,1.15)],col)})}break;
+    case 'shed':hBox(c,x,y,w,d,1.4,'#7A5A3A','#5A4030');break;
+    case 'hotelbed':hBox(c,x,y,w,d,.5,'#7A6E66');hBox(c,x+.05,y+.6,w-.1,d-.65,.06,'#F4F1EA',null,.5);hBox(c,x+.1,y+.08,w-.2,.4,.12,'#fff',null,.5);break;
+    case 'tray':hBox(c,x,y,w,d,.75,'#7A5233');{const [a,b]=hIso(x+.3,y+.3,.75);c.fillStyle='#fff';c.fillRect(a-3,b-6,6,6)}break;
+  }
+}
+function drawItem(c,it,t){
+  const I=ITEMS[it.k],[w,d,h]=itemSize(it),x=it.x,y=it.y,col=I.col,r=it.rot;
+  const night=S.hour<6.5||S.hour>=19;
+  switch(I.st){
+    case 'bed':{hBox(c,x,y,w,d,h*.6,col);hBox(c,x+.03,y+.03,w-.06,d-.06,h*.4,'#F4F1EA',null,h*.6);
+      const duvet=S.acc.includes('blanket')?'#E2A13B':I.col2;
+      if(!r){hBox(c,x+.03,y+d*.35,w-.06,d*.62,.05,duvet,null,h);hBox(c,x+.1,y+.08,w-.2,.3,.1,'#fff',null,h);if(it.k!=='mattress')hBox(c,x,y-.02,w,.1,h+.55,shade(col,.8))}
+      else{hBox(c,x+w*.35,y+.03,w*.62,d-.06,.05,duvet,null,h);hBox(c,x+.08,y+.1,.3,d-.2,.1,'#fff',null,h);if(it.k!=='mattress')hBox(c,x-.02,y,.1,d,h+.55,shade(col,.8))}break}
+    case 'sofa':{hBox(c,x,y,w,d,h,col);if(!r){hBox(c,x,y,w,.22,h+.4,shade(col,.92));hBox(c,x,y,.18,d,h+.2,shade(col,.85));hBox(c,x+w-.18,y,.18,d,h+.2,shade(col,.85))}else{hBox(c,x,y,.22,d,h+.4,shade(col,.92));hBox(c,x,y,w,.18,h+.2,shade(col,.85));hBox(c,x,y+d-.18,w,.18,h+.2,shade(col,.85))}break}
+    case 'corner':{const A=r?[d,w]:[w,d];hBox(c,x,y,w,.9>d?d:.9,h,col);hBox(c,x,y,.9,d,h,col);hBox(c,x,y,w,.22,h+.4,shade(col,.92));hBox(c,x,y,.22,d,h+.4,shade(col,.92));break}
+    case 'table':hBox(c,x,y,w,d,.06,col,null,h-.06);[[.05,.05],[w-.1,.05],[.05,d-.1],[w-.1,d-.1]].forEach(([a,b])=>hBox(c,x+a,y+b,.05,.05,h-.06,shade(col,.8)));break;
+    case 'dining':{const tx=x+.35,ty=y+.35,tw=w-.7,td=d-.7;
+      [[tw/2-.18,-.33],[-.33,td/2-.18]].forEach(([a,b])=>hBox(c,tx+a,ty+b,.36,.36,.45,shade(col,.9)));
+      hBox(c,tx,ty,tw,td,.06,col,null,h-.06);hBox(c,tx+tw/2-.06,ty+td/2-.06,.12,.12,h-.06,shade(col,.8));
+      [[tw/2-.18,td-.03],[tw-.03,td/2-.18]].forEach(([a,b])=>hBox(c,tx+a,ty+b,.36,.36,.45,shade(col,.9)));break}
+    case 'chair':hBox(c,x,y,w,d,h,col);hBox(c,x,y,w,.08,h+.45,shade(col,.85));break;
+    case 'wardrobe':hBox(c,x,y,w,d,h,col);{const s=r?[hIso(x+w,y+d/2,.1),hIso(x+w,y+d/2,h-.1)]:[hIso(x+w/2,y+d,.1),hIso(x+w/2,y+d,h-.1)];c.strokeStyle='rgba(0,0,0,.25)';c.lineWidth=.8;c.beginPath();c.moveTo(...s[0]);c.lineTo(...s[1]);c.stroke()}break;
+    case 'drawers':hBox(c,x,y,w,d,h,col);for(let z=.25;z<h;z+=.25){const q=r?[hIso(x+w,y+.05,z),hIso(x+w,y+d-.05,z)]:[hIso(x+.05,y+d,z),hIso(x+w-.05,y+d,z)];c.strokeStyle='rgba(0,0,0,.25)';c.lineWidth=.6;c.beginPath();c.moveTo(...q[0]);c.lineTo(...q[1]);c.stroke()}break;
+    case 'bedside':hBox(c,x,y,w,d,h,col);lampHead(c,x+w/2,y+d/2,h,night);break;
+    case 'lamp':{const [a,b]=hIso(x+w/2,y+d/2,0),[a2,b2]=hIso(x+w/2,y+d/2,h);c.strokeStyle='#2A2A2A';c.lineWidth=1.5;c.beginPath();c.moveTo(a,b);c.lineTo(a2,b2);c.stroke();lampHead(c,x+w/2,y+d/2,h-.1,night);break}
+    case 'mirror':hBox(c,x,y,w,d,h,'#C9CED3','#C9CED3');{const q=r?[hIso(x+w,y+.05,.05),hIso(x+w,y+d-.05,.05),hIso(x+w,y+d-.05,h-.05),hIso(x+w,y+.05,h-.05)]:[hIso(x+.05,y+d,.05),hIso(x+w-.05,y+d,.05),hIso(x+w-.05,y+d,h-.05),hIso(x+.05,y+d,h-.05)];hPoly(c,q,'#DCEBF4')}break;
+    case 'tv':{hBox(c,x,y,w,d,h,'#5A4A3A');const sx=r?x:x+.05,sy=r?y+.05:y;const sw=r?.08:w-.1,sd=r?d-.1:.08;const big=I.big?1.05:.75;hBox(c,sx,sy,sw,sd,big,'#111',null,h);
+      const q=r?[hIso(sx+sw,sy+.03,h+.05),hIso(sx+sw,sy+sd-.03,h+.05),hIso(sx+sw,sy+sd-.03,h+big-.05),hIso(sx+sw,sy+.03,h+big-.05)]:[hIso(sx+.03,sy+sd,h+.05),hIso(sx+sw-.03,sy+sd,h+.05),hIso(sx+sw-.03,sy+sd,h+big-.05),hIso(sx+.03,sy+sd,h+big-.05)];
+      hPoly(c,q,S.meterOff?'#222':anim.tvOn?`hsl(${(t/20)%360},45%,45%)`:'#24324A');if(S.acc.includes('soundbar'))hBox(c,x+.1,y+d-.12,w-.2,.1,.08,'#222',null,h);if(S.acc.includes('console'))hBox(c,x+w-.35,y+.1,.28,.22,.08,'#F4F4F2',null,h);break}
+    case 'shelf':hBox(c,x,y,w,d,h,col);for(let z=.15;z<h-.2;z+=.42)for(let k=0;k<6;k++){const a=x+.06+k*(w-.12)/6;const q=r?null:[hIso(a,y+d,z),hIso(a+.1,y+d,z),hIso(a+.1,y+d,z+.3),hIso(a,y+d,z+.3)];if(q)hPoly(c,q,['#C24E36','#08774C','#2B3A8C','#C9921B','#6A2C91','#E8E2D6'][(k+Math.round(z*10))%6])}break;
+    case 'plant':hBox(c,x+.08,y+.08,w-.16,d-.16,.3,'#B5651D');foliage(c,x+w/2,y+d/2,.45,1);break;
+    case 'bigplant':hBox(c,x+.1,y+.1,w-.2,d-.2,.4,'#E8E2D6');foliage(c,x+w/2,y+d/2,.9,1.6);break;
+    case 'rug':{const q=[hIso(x,y),hIso(x+w,y),hIso(x+w,y+d),hIso(x,y+d)];hPoly(c,q,col==='ankara'?fabricPattern('red'):'#7A2E2E');if(col==='persian'){const q2=[hIso(x+.15,y+.15),hIso(x+w-.15,y+.15),hIso(x+w-.15,y+d-.15),hIso(x+.15,y+d-.15)];hPoly(c,q2,null,'#E2B46B',1.5);const q3=[hIso(x+.4,y+.4),hIso(x+w-.4,y+.4),hIso(x+w-.4,y+d-.4),hIso(x+.4,y+d-.4)];hPoly(c,q3,'#2B3A5C')}break}
+    case 'mat':{const q=[hIso(x,y),hIso(x+w,y),hIso(x+w,y+d),hIso(x,y+d)];hPoly(c,q,'#2B5BA8');hBox(c,x+.1,y+.1,.15,.25,.12,'#222');hBox(c,x+.4,y+.1,.15,.25,.12,'#222');break}
+    case 'speaker':hBox(c,x,y,w,d,h,col);{const [a,b]=hIso(x+w/2,y+d,h*.55);c.fillStyle='#555';c.beginPath();c.arc(a,b,HV.tw*.06,0,7);c.fill()}break;
+    case 'desk':hBox(c,x,y,w,d,.05,col,null,h-.05);[[.03,.03],[w-.08,.03],[.03,d-.08],[w-.08,d-.08]].forEach(([a,b])=>hBox(c,x+a,y+b,.05,.05,h-.05,shade(col,.8)));
+      if(S.acc.includes('laptop')){hBox(c,x+w/2-.18,y+.12,.36,.25,.02,'#888',null,h);hPoly(c,[hIso(x+w/2-.18,y+.12,h+.02),hIso(x+w/2+.18,y+.12,h+.02),hIso(x+w/2+.18,y+.12,h+.28),hIso(x+w/2-.18,y+.12,h+.28)],'#9FB6CC')}
+      if(S.acc.includes('officechair'))hBox(c,x+w/2-.22,y+d+.05,.44,.44,.48,'#1B1F1D');break;
+    case 'ring':{const [a,b]=hIso(x+w/2,y+d/2,0),[a2,b2]=hIso(x+w/2,y+d/2,h);c.strokeStyle='#777';c.lineWidth=1.5;c.beginPath();c.moveTo(a,b);c.lineTo(a2,b2);c.stroke();c.strokeStyle='#FFF7D6';c.lineWidth=2.5;c.beginPath();c.arc(a2,b2-4,HV.tw*.13,0,7);c.stroke();break}
+    case 'bike':hBox(c,x+.15,y+.1,w-.3,d-.2,.15,col);hBox(c,x+w/2-.08,y+d*.6,.16,.16,.75,col);hBox(c,x+w/2-.15,y+d*.6,.3,.25,.06,'#111',null,.75);hBox(c,x+w/2-.05,y+.15,.1,.1,1.05,col);{const [a,b]=hIso(x+w/2,y+.35,.3);c.strokeStyle='#888';c.lineWidth=1.2;c.beginPath();c.arc(a,b,HV.tw*.12,0,7);c.stroke()}break;
+    case 'bbq':hBox(c,x,y,w,d,h-.15,'#2A2A2A');hBox(c,x-.03,y-.03,w+.06,d+.06,.06,'#555',null,h-.15);if(anim.bbq){for(let k=0;k<3;k++){c.fillStyle='rgba(180,180,180,.5)';const [a,b]=hIso(x+w/2,y+d/2,h+.3+k*.3);c.beginPath();c.arc(a+Math.sin(t/300+k)*3,b,4+k*2,0,7);c.fill()}}break;
+    default:hBox(c,x,y,w,d,h,col);
+  }
+}
+function lampHead(c,x,y,z,night){const [a,b]=hIso(x,y,z+.25);c.fillStyle='#F4E6C8';c.beginPath();c.moveTo(a-5,b+4);c.lineTo(a+5,b+4);c.lineTo(a+3,b-3);c.lineTo(a-3,b-3);c.fill();
+  if(night){const g=c.createRadialGradient(a,b,2,a,b,HV.tw*1.6);g.addColorStop(0,'rgba(255,214,120,.45)');g.addColorStop(1,'rgba(255,214,120,0)');c.fillStyle=g;c.fillRect(a-HV.tw*1.6,b-HV.tw*1.6,HV.tw*3.2,HV.tw*3.2)}}
+function foliage(c,x,y,z,s){const [a,b]=hIso(x,y,z);const r=HV.tw*.12*s;c.fillStyle='#2F8F4E';[[-1,0],[1,-.3],[0,-1],[-.5,.6],[.6,.5]].forEach(([p,q])=>{c.beginPath();c.arc(a+p*r,b+q*r,r,0,7);c.fill()});c.fillStyle='#4FA866';c.beginPath();c.arc(a-r*.3,b-r*.6,r*.7,0,7);c.fill()}
+function drawWallItem(c,it){
+  const I=ITEMS[it.k],s=it.wall,a=it.at,q=(a0,a1,z0,z1)=>wallQuad(s,a0,a1,z0,z1);
+  if(I.st==='photos'){[[a,1.3,.35,.3,'#E7C9A0'],[a+.4,1.4,.3,.25,'#BFD8E8'],[a+.1,1.7,.45,.28,'#F2D3D3']].forEach(([p,z,w,h,col])=>{hPoly(c,q(p,p+w,z,z+h),'#5B3A1E');hPoly(c,q(p+.03,p+w-.03,z+.03,z+h-.03),col)})}
+  if(I.st==='art'){hPoly(c,q(a,a+.7,1.2,1.85),'#2B2620');hPoly(c,q(a+.05,a+.65,1.25,1.8),fabricPattern('gold'))}
+  if(I.st==='flag'){hPoly(c,q(a,a+.25,1.3,1.75),'#08774C');hPoly(c,q(a+.25,a+.5,1.3,1.75),'#FFFFFF');hPoly(c,q(a+.5,a+.75,1.3,1.75),'#08774C')}
+  if(I.st==='clock'){const [x,y]=wallPt(s,a+.25,1.75);c.fillStyle='#fff';c.strokeStyle='#333';c.lineWidth=1;c.beginPath();c.ellipse(x,y,HV.tw*.12,HV.tw*.14,0,0,7);c.fill();c.stroke();c.beginPath();c.moveTo(x,y);c.lineTo(x,y-HV.tw*.09);c.moveTo(x,y);c.lineTo(x+HV.tw*.06,y);c.stroke()}
+}
+function drawFairy(c,L,t){if(!S.acc.includes('fairy'))return;const night=S.hour<7||S.hour>=18;['A','B'].forEach(s=>{const len=s==='A'?L.w:L.d;for(let a=.1;a<len;a+=.22){const [x,y]=wallPt(s,a,2.05+Math.sin(a*3)*.05);c.fillStyle=night?['#FFD45A','#FF8FB1','#9AD0FF'][Math.floor(a*5)%3]:'#ddd';c.beginPath();c.arc(x,y,night?1.8:1,0,7);c.fill()}})}
+
+function drawHome2(t){
+  ensureItems();const L=LAY();fitView(L);readColors();
+  const c=ctx;c.fillStyle=colors['--surface']||'#fff';c.fillRect(0,0,360,230);
+  L.rooms.forEach(R=>floorPattern(c,R,R.floor));
+  // rugs under everything
+  S.items.filter(it=>ITEMS[it.k].floor).forEach(it=>drawItem(c,it,t));
+  drawWallsAndWindows(c,L,t);
+  S.items.filter(it=>ITEMS[it.k].wallItem).forEach(it=>drawWallItem(c,it));
+  drawFairy(c,L,t);
+  // depth-sorted drawables
+  const dr=[];
+  L.fix.forEach(f=>{const r=fixRect(f);if(r)dr.push({d:r.x+r.w+r.y+r.d,f:()=>drawFixture(c,f,t)})});
+  wallSegs(L).forEach(sg=>{const th=.1;const x=sg.x1-(sg.x1===sg.x2?th/2:0),y=sg.y1-(sg.y1===sg.y2?th/2:0),w=sg.x1===sg.x2?th:sg.x2-sg.x1,d=sg.y1===sg.y2?th:sg.y2-sg.y1;
+    const R=roomAt(x+w/2+.06,y+d/2+.06)||L.rooms[0];dr.push({d:x+w+y+d-.2,f:()=>hBox(c,x,y,w,d,.7,R.wall?shade(R.wall,.95):'#ccc','#F7F5F0')})});
+  S.items.filter(it=>!ITEMS[it.k].floor&&!ITEMS[it.k].wallItem).forEach(it=>{const [w,d]=itemSize(it);dr.push({d:it.x+w+it.y+d-.3,f:()=>{drawItem(c,it,t);if(DEC.sel===it.u)selBox(c,it)}})});
+  dr.push({d:anim.x+anim.y,f:()=>{const [x,y]=hIso(anim.x,anim.y);drawPerson(c,x,y,S.look,.6*HV.tw/48,{walk:anim.walking,t,mood:mood()});if(anim.emote&&t<anim.emoteUntil)bubble(x,y-HV.tw*.95,anim.emote)}});
+  if(married())dr.push({d:6,f:()=>{const p=idleSpot();const [x,y]=hIso(p[0]+.5,p[1]+.3);drawPerson(c,x,y,lookOf(S.partner),.6*HV.tw/48,{t})}});
+  dr.sort((a,b)=>a.d-b.d).forEach(o=>o.f());
+  if(DEC.on){S.items.filter(it=>ITEMS[it.k].floor&&DEC.sel===it.u).forEach(it=>selBox(c,it))}
+  // night tint
+  const night=S.hour<6.5||S.hour>=19.5;if(night){c.fillStyle='rgba(20,28,60,.22)';c.fillRect(0,0,360,230)}
+  // room labels in decorate mode
+  if(DEC.on){c.font='800 8px Figtree,sans-serif';c.textAlign='center';L.rooms.forEach(R=>{const [x,y]=hIso(R.x+R.w/2,R.y+R.d/2);c.fillStyle='rgba(255,255,255,.85)';const w=c.measureText(R.n).width+8;c.fillRect(x-w/2,y-7,w,11);c.fillStyle='#18221E';c.fillText(R.n,x,y+1)})}
+}
+function selBox(c,it){const [w,d,h]=itemSize(it);const q=[hIso(it.x,it.y),hIso(it.x+w,it.y),hIso(it.x+w,it.y+d),hIso(it.x,it.y+d)];hPoly(c,q,'rgba(242,183,5,.25)','#F2B705',2)}
+
+/* ---------- decorate mode ---------- */
+const DEC={on:false,sel:null};
+function decSelected(){return S.items.find(i=>i.u===DEC.sel)||S.store.find(i=>i.u===DEC.sel)}
+function decMove(dx,dy){const it=S.items.find(i=>i.u===DEC.sel);if(!it)return;if(ITEMS[it.k].wallItem){const sp=wallSpots();const k=sp.findIndex(p=>p.s===it.wall&&p.a===it.at);const n=sp[(k+(dx+dy>0?1:-1)+sp.length)%sp.length];if(n){it.wall=n.s;it.at=n.a}return}
+  const grid=blockGrid(it.u);const nx=it.x+dx*CELL,ny=it.y+dy*CELL;if(fits(it,nx,ny,it.rot,grid)){it.x=nx;it.y=ny}else toast("It won't fit there.")}
+function decRotate(){const it=S.items.find(i=>i.u===DEC.sel);if(!it||ITEMS[it.k].wallItem)return;const grid=blockGrid(it.u);if(fits(it,it.x,it.y,it.rot?0:1,grid))it.rot=it.rot?0:1;else toast('No room to turn it here.')}
+function decStore(){const k=S.items.findIndex(i=>i.u===DEC.sel);if(k<0)return;const it=S.items.splice(k,1)[0];delete it.x;delete it.y;S.store.push(it)}
+function decPlace(u){const k=S.store.findIndex(i=>i.u===u);if(k<0)return;if(LAY().hotel){toast("You can't furnish a hotel room.");return}const it=S.store[k];const pos=autoPlace(it);if(!pos){toast('No space. Store or sell something first, or move to a bigger home.');return}Object.assign(it,pos);S.store.splice(k,1);S.items.push(it);DEC.sel=it.u}
+function decSell(){let it=S.items.find(i=>i.u===DEC.sel),from=S.items;if(!it){it=S.store.find(i=>i.u===DEC.sel);from=S.store}if(!it)return;if(ITEMS[it.k].sell===false){toast('Nobody wants this one. Store it instead.');return}const v=Math.round(ITEMS[it.k].p*.5);from.splice(from.indexOf(it),1);earn(v,`Sold ${ITEMS[it.k].n}`);DEC.sel=null;toast(`Sold for ${gbp(v)}.`)}
+function decTap(px,py){ // canvas logical coords
+  if(!DEC.on)return;let best=null,bd=1e9;
+  S.items.forEach(it=>{if(ITEMS[it.k].wallItem){const p=wallPt(it.wall,it.at+.3,1.5);const dd=Math.hypot(p[0]-px,p[1]-py);if(dd<14&&dd<bd){bd=dd;best=it}return}const [w,d,h]=itemSize(it);const p=hIso(it.x+w/2,it.y+d/2,h/2);const dd=Math.hypot(p[0]-px,p[1]-py);if(dd<HV.tw*.9&&dd<bd){bd=dd;best=it}});
+  if(best){DEC.sel=best.u;render();return}
+  const it=S.items.find(i=>i.u===DEC.sel);if(!it||ITEMS[it.k].wallItem)return;
+  // inverse iso at floor level
+  const u=(px-HV.ox)/(HV.tw/2),v=(py-HV.oy)/(HV.th/2);const gx=Math.round((u+v)/2/CELL)*CELL,gy=Math.round((v-u)/2/CELL)*CELL;const [w,d]=itemSize(it);
+  const nx=Math.round((gx-w/2)/CELL)*CELL,ny=Math.round((gy-d/2)/CELL)*CELL;if(fits(it,nx,ny,it.rot,blockGrid(it.u))){it.x=nx;it.y=ny;render()}else toast("It won't fit there.");
+}
+
+/* ---------- moving home ---------- */
+function moveHome(id){
+  const h=CITIES[S.city].homes.find(x=>x.id===id),old=homeDef();if(!h||h.id===S.home)return;
+  const dep=(h.rent||0)*5,refund=(old.rent||0)*5,cost=dep+(h.rent||0)+80-refund;
+  if(S.workBan){toast('You can\'t move out of the hotel while your claim is pending.');return}
+  if(S.money<cost){toast(`You need ${gbp(cost)} for the deposit, first week and van.`);return}
+  if(refund)earn(refund,'Deposit returned (DPS)');spend(dep,'New deposit (5 weeks)');if(h.rent)spend(h.rent,'First week rent');spend(80,'Man with a van');
+  const all=[...S.items,...S.store];S.items=[];S.store=[];S.home=id;S.at='home';CM=null;anim.reset=true;
+  all.sort((a,b)=>(ITEMS[b.k].sz?ITEMS[b.k].sz[0]*ITEMS[b.k].sz[1]:0)-(ITEMS[a.k].sz?ITEMS[a.k].sz[0]*ITEMS[a.k].sz[1]:0)).forEach(it=>{delete it.x;delete it.y;delete it.wall;const pos=LAY().hotel?null:autoPlace(it);if(pos){Object.assign(it,pos);S.items.push(it)}else S.store.push(it)});
+  log(`Moved into a ${h.name}. ${S.store.length?`${S.store.length} items went into storage.`:'Everything fits.'}`,'good');
+  msg('mummy',`New house!! Send me pictures. Is there space for me when I visit? 😄`);
+}
+function homeBills(h){h=h||homeDef();return {room:0,hotel:0,studio:28,flat:34,house:45}[h.layout||(h.hotel?'hotel':h.shared?'room':'studio')]}
+
+function relayout(){S.store.slice().forEach(it=>{const pos=LAY().hotel?null:autoPlace(it);if(pos){Object.assign(it,pos);S.store.splice(S.store.indexOf(it),1);S.items.push(it)}})}
+
 /* ---------- story mode: the japa ---------- */
 const SLOOK={mum:{skin:3,hair:'gele',fabric:'red'},dad:{skin:4,hair:'lowcut',fabric:'indigo'},agent:{skin:3,hair:'lowcut',fabric:'gold'},boy:{skin:4,hair:'afro',fabric:'teal'},
   officer:{skin:0,hair:'lowcut',fabric:'indigo'},carer:{skin:1,hair:'bun',fabric:'green'},driver:{skin:4,hair:'lowcut',fabric:'gold'}};
@@ -1890,7 +2315,7 @@ function render(){
   const acts=ACTS.filter(a=>{const at=Array.isArray(a.at)?a.at:[a.at];return at.includes(v.type)}).concat(gigActs());
   const rows=acts.filter(a=>v.type==='home'||isOpen(v.type)||a.id==='vloo'&&false).map(actRow);
   let html='';
-  if(v.type==='home'){html+=`<button class="act go" data-buy><span class="main"><span class="lbl">Buy furniture</span><span class="sub">${S.furn.filter(k=>!FURN[k].start).length} items bought${CITIES[S.city].homes.find(h=>h.id===S.home).shared?' · shared room fits 4':''}</span></span><span class="meta"><b>Shop</b></span></button>`}
+  if(v.type==='home'){ensureItems();const n=S.items.length+S.store.length+S.acc.length;html+=`<div class="row2"><button class="act go" data-buy><span class="main"><span class="lbl">Buy furniture</span><span class="sub">${n} items · ${'★'.repeat(homeStars())}${'☆'.repeat(5-homeStars())}</span></span></button><button class="act ${DEC.on?'go':''}" data-decorate><span class="main"><span class="lbl">${DEC.on?'Done decorating':'Decorate'}</span><span class="sub">${DEC.on?'Tap an item, then move it':'Move, turn, store or sell'}</span></span></button></div>${DEC.on?decPanel():''}`}
   else html+=`<button class="act" data-gohome><span class="main"><span class="lbl">Go home</span><span class="sub">${travelOptions('home').map(o=>`${o.label} ${o.cost?gbp2(o.cost):'free'}`).join(' · ')}</span></span><span class="meta"><b>Home</b></span></button>`;
   if(v.type!=='home'&&!isOpen(v.type))html+=`<div class="card" style="padding:12px 14px;font-size:13.5px"><b>Closed right now.</b> ${hoursText(v.type)}</div>`;
   const gigRows=rows.filter(r=>r.includes('data-act="gig-'));html+=gigRows.join('')+rows.filter(r=>!r.includes('data-act="gig-')).join('');
@@ -1911,7 +2336,7 @@ function actRow(a){
   return `<button class="act ${off?'off':''} ${a.menu?'go':''}" data-act="${a.id}"><span class="main"><span class="lbl">${esc(val(a.label))}</span><span class="sub">${esc(why||(poor?'Not enough money':val(a.sub)||''))}</span></span><span class="meta">${right}${a.menu||a.invite?'':dur}</span></button>`;
 }
 function doAct(id){
-  if(busy||S.over||S.queue.length)return;
+  if(busy||S.over||S.queue.length)return;if(DEC.on){DEC.on=false;DEC.sel=null}
   const a=ACTS.concat(gigActs()).find(x=>x.id===id);if(!a)return;if(a.books){openSheet({type:'phone',app:'biz'});return}const why=a.cond&&a.cond();if(why){toast(why);return}
   if(a.menu){openSheet({type:'menu'});return}
   if(a.invite){openSheet({type:'invite',pick:[]});return}
@@ -1921,12 +2346,13 @@ function doAct(id){
     advance(val(a.h),{sleep:a.sleep,away:a.away});
     if(!S.over){log(a.run(),a.earn?'good':'');
       if(S.needs.energy<=0){log('You passed out from tiredness and slept for 6 hours.','bad');advance(6,{sleep:true})}}
-    checkGoals();save();busy=false;render();
+    anim.tvOn=false;anim.bbq=false;checkGoals();save();busy=false;render();
   };
   busy=true;anim.emote=a.emote||'✨';anim.emoteUntil=performance.now()+(reduceMotion?400:900);
   if(here().type==='home'){
-    const item=val(a.item);const spot=item&&FURN[item]?.spot||SPOT[a.spot||'idle'];
-    anim.tx=spot[0];anim.ty=spot[1];
+    const item=val(a.item);const sp=a.spot;
+    const spot=item?spotForTag(item):sp==='loo'?spotForTag('toilet'):sp==='shower'?spotForTag('bath'):sp==='washer'?spotForTag('washer'):sp==='door'?doorPos():idleSpot();
+    anim.path=cellPath([anim.x,anim.y],spot);anim.tx=spot[0];anim.ty=spot[1];if(a.tv)anim.tvOn=true;if(a.id==='bbqparty')anim.bbq=true;
     anim.onArrive=()=>{anim.emoteUntil=performance.now()+700;setTimeout(go,reduceMotion?50:650)};
   }else setTimeout(go,reduceMotion?50:650);
   $('app').classList.add('busy');
@@ -1941,7 +2367,7 @@ function renderSheet(){
   if(!sheet){el.innerHTML='';return}
   if(sheet.type==='map'&&((sheet.real&&lmap&&$('lmap'))||(!sheet.real&&$('citycv')&&CM&&CM.city===S.city))){const vi=$('vinfo');if(vi&&!CMV.trip)vi.innerHTML=mapInfo();return}
   let body='',cls='panel';
-  if(['restart','liveok','liveperson','bizsell'].includes(sheet.type)){el.innerHTML='';return}
+  if(['restart','liveok','liveperson','bizsell','movehome'].includes(sheet.type)){el.innerHTML='';return}
   if(sheet.type==='map')body=mapSheet();
   if(sheet.type==='phone'){cls='panel phone';body=phoneSheet()}
   if(sheet.type==='me')body=meSheet();
@@ -2041,7 +2467,7 @@ function phoneSheet(){
   const app=sheet.app;
   if(!app){
     const u=unread();
-    const apps=[['wa','WhatsApp','#25A866','W',u],['bank','Bank','#2B3A8C','£'],['remit','Send home','#C24E36','₦'],['jobs','Jobs','#C9921B','J'],['gigs','Gigs','#B3261E','G',S.gigs?S.gigs.acc.length:0],['biz','Business','#C9921B','₿'],['live','Live chat','#0E7C86','●'],['rich','Rich list','#6A2C91','#'],['goals','Goals','#08774C','✓']];
+    const apps=[['wa','WhatsApp','#25A866','W',u],['bank','Bank','#2B3A8C','£'],['remit','Send home','#C24E36','₦'],['jobs','Jobs','#C9921B','J'],['gigs','Gigs','#B3261E','G',S.gigs?S.gigs.acc.length:0],['biz','Business','#C9921B','₿'],['homes','Homes','#2B5BA8','⌂'],['live','Live chat','#0E7C86','●'],['rich','Rich list','#6A2C91','#'],['goals','Goals','#08774C','✓']];
     return hd(hhmm(S.hour),`${DAYS[dow()]}, Day ${S.day} · ${S.weather}`)+`<div class="apps">${apps.map(([id,l,c,g,b])=>`<button class="app" data-app="${id}"><i style="background:${c}">${g}</i>${l}${b?`<span class="badge">${b}</span>`:''}</button>`).join('')}</div>`;
   }
   const back=`<button class="pbtn" data-app="" style="align-self:flex-start;padding:6px 12px">← Home screen</button>`;
@@ -2083,6 +2509,9 @@ function phoneSheet(){
     <div class="apps" style="grid-template-columns:repeat(2,1fr);gap:8px"><button class="pbtn" data-bizmkt>${Z.mkt?`Marketing: ${Z.mkt} days left`:`Marketing push · ${gbp(Z.type==='lounge'?300:60)}`}</button><button class="pbtn" data-bizup ${Z.lvl>=3?'disabled':''}>${Z.lvl>=3?'Fully upgraded':`Upgrade · ${gbp(B.cost*.5*Z.lvl)}`}</button></div>
     <button class="pbtn" data-bizsell>Sell the business for ${gbp(bizValue())}</button>`;
   }
+  if(app==='homes'){const cur=homeDef();const list=CITIES[S.city].homes.filter(h=>!h.hotel);
+    return hd('Homes',`To rent in ${CITIES[S.city].name}`)+back+`<div style="font-size:13px;opacity:.8">Deposits are 5 weeks' rent, protected in a deposit scheme and returned when you move. A man with a van costs £80.</div>${list.map(h=>{const L=LAYOUTS[h.layout];const here_=h.id===cur.id;const dep=h.rent*5;const bills=homeBills(h);
+      return `<div class="pcard"><b style="font-size:16px">${esc(h.name)}${here_?' · you live here':''}</b><span style="font-size:13px;opacity:.85">${L.rooms.filter(r=>r.kind!=='hall').map(r=>r.n).join(' · ')}</span><span style="font-family:var(--f-mono);font-size:13px">${gbp(h.rent)}/week (about ${gbp(h.rent*52/12)}/month) · deposit ${gbp(dep)}${bills?` · bills ${gbp(bills)}/week`:' · bills included'}</span><span style="font-size:12.5px;opacity:.75">${{room:'Shared kitchen and bathroom. Bills included.',studio:'Your own kitchenette and shower room.',flat:'Separate bedroom, open-plan kitchen, washing machine.',house:'Two bedrooms, kitchen diner, back garden with a washing line.'}[h.layout]}</span>${here_?'':`<button class="pbtn g" data-movehome="${h.id}">Move here</button>`}</div>`}).join('')}`}
   if(app==='live')return hd('Live chat','Real players in your city')+back+`<div id="phonelive" style="color:var(--ink)">${liveBox()}</div>`;
   if(app==='rich'){const l=richList();return hd('Japa rich list')+back+`<div style="font-size:13px;opacity:.8">Net worth: cash minus debts, plus half the value of your furniture.</div><ol class="rich">${l.map((r,i)=>`<li class="${r.me?'me':''}"><span class="rk">${i+1}</span><span class="nm">${esc(r.n)}</span><span class="w">${gbp(r.w)}</span></li>`).join('')}</ol>`}
   if(app==='goals'){const p=dreamProgress();return hd('Goals')+back+`<div class="pcard"><span class="lbl">Lifetime dream</span><b style="font-size:17px">${DREAMS[S.dream].name}</b><span style="font-size:13px;opacity:.85">${DREAMS[S.dream].d}</span><div class="bar" style="background:#ffffff22"><i style="width:${Math.round(p*100)}%;background:#F2B705"></i></div></div><div class="pcard"><ul class="goals" style="color:var(--phone-ink)">${GOALS.map(([id,l])=>`<li class="${S.goals[id]?'done':''}"><span class="tick">${S.goals[id]?'✓':''}</span><span>${l}</span></li>`).join('')}</ul></div>`}
@@ -2097,14 +2526,24 @@ function meSheet(){
     <div class="card"><h2>Dream: ${DREAMS[S.dream].name}</h2><div style="font-size:13px;color:var(--muted)">${DREAMS[S.dream].d}</div><div class="bar" style="height:10px;margin-top:8px"><i style="width:${Math.round(p*100)}%;background:var(--danfo)"></i></div></div>
     <div class="card"><h2>Skills</h2><div class="needs" style="border:0;padding:0">${Object.entries(S.skills).map(([k,v])=>`<div class="need"><div class="row"><span>${k[0].toUpperCase()+k.slice(1)}</span><span>${v.toFixed(1)}/10</span></div><div class="bar"><i style="width:${v*10}%;background:var(--danfo)"></i></div></div>`).join('')}</div></div>
     <div class="card"><h2>People</h2>${rels.length?`<div style="display:grid;gap:6px">${rels.map(id=>`<button class="person" data-npc="${id}" style="border-radius:12px;justify-content:flex-start"><img class="face" src="${face(id)}" alt=""><span style="flex:1;text-align:left">${NPCS[id].name}<small>${relLabel(id)} · ${Math.round(S.npcs[id].rel)}</small></span></button>`).join('')}</div>`:'<div style="font-size:13.5px;color:var(--muted)">Go out and meet people. Tap them to talk.</div>'}</div>
-    <div class="card"><h2>Life so far</h2><dl class="kv">${S.visaLabel?`<dt>Status</dt><dd>${esc(S.visaLabel)}</dd>`:''}<dt>Days played</dt><dd>${S.day}</dd><dt>Dishes tried</dt><dd>${Object.keys(S.dishes).filter(k=>DISHES[k]).length}</dd><dt>Dinners hosted</dt><dd>${S.hosted||0}</dd><dt>Sent home</dt><dd>${ngn(S.sentHome)}</dd><dt>Restaurants tried</dt><dd>${Object.keys(S.visited).filter(k=>S.visited[k]>0).length}</dd><dt>Rich list rank</dt><dd>#${myRank()}</dd></dl></div>
+    <div class="card"><h2>Life so far</h2><dl class="kv">${S.visaLabel?`<dt>Status</dt><dd>${esc(S.visaLabel)}</dd>`:''}<dt>Home</dt><dd>${esc(homeDef().name)} ${'★'.repeat(homeStars())}</dd><dt>Days played</dt><dd>${S.day}</dd><dt>Dishes tried</dt><dd>${Object.keys(S.dishes).filter(k=>DISHES[k]).length}</dd><dt>Dinners hosted</dt><dd>${S.hosted||0}</dd><dt>Sent home</dt><dd>${ngn(S.sentHome)}</dd><dt>Restaurants tried</dt><dd>${Object.keys(S.visited).filter(k=>S.visited[k]>0).length}</dd><dt>Rich list rank</dt><dd>#${myRank()}</dd></dl></div>
     <button class="ghost" data-restart-ask>Start a new life</button>`;
 }
 function buySheet(){
-  const shared=CITIES[S.city].homes.find(h=>h.id===S.home).shared;const bought=S.furn.filter(k=>!FURN[k].start).length;const full=shared&&bought>=4;
-  const list=Object.entries(FURN).filter(([k,f])=>!f.start).map(([k,f])=>{const owned=own(k);const dis=owned||S.money<f.price||(full&&!owned);
-    return `<button class="act ${dis&&!owned?'off':''}" data-furn="${k}" ${owned?'disabled':''}><span class="main"><span class="lbl">${f.name}${owned?' ✓':''}</span><span class="sub">${owned?'In your flat':full?'No space in a shared room':esc(f.d)}</span></span><span class="meta"><b>${owned?'Owned':gbp(f.price)}</b></span></button>`}).join('');
-  return hd('Buy furniture',`${gbp(S.money)} available${shared?` · ${bought}/4 slots`:''}`)+`<div class="acts">${list}</div>`;
+  ensureItems();const cat=sheet.cat||'Bedroom';const counts={};[...S.items,...S.store].forEach(i=>counts[i.k]=(counts[i.k]||0)+1);S.acc.forEach(k=>counts[k]=(counts[k]||0)+1);
+  const L=LAY();const list=Object.entries(ITEMS).filter(([k,I])=>I.c===cat&&I.p>0).map(([k,I])=>{const n=counts[k]||0;const poor=S.money<I.p;const garden=I.room==='garden'&&!L.garden;
+    const fx=Object.entries(I.fx||{}).filter(([q,v])=>v>0&&q!=='amb').map(([q])=>({comfort:'better sleep',fun:'more fun at home',study:'faster study',cook:'better cooking',homesick:'less homesick',fitness:'home workouts'}[q])).join(', ');
+    return `<button class="act ${poor?'off':''}" data-furn="${k}"><span class="main"><span class="lbl">${I.n}${n?` <span style="color:var(--green)">· own ${n}</span>`:''}</span><span class="sub">${esc(I.d||fx||(I.sz?`${I.sz[0]}×${I.sz[1]}m`:''))}${garden?' · needs a garden to place':''}</span></span><span class="meta"><b>${gbp(I.p)}</b></span></button>`}).join('');
+  return hd('Buy furniture',`${gbp(S.money)} · ${L.name}${L.hotel?' · hotel: items go to storage':''}`)+`<div class="opts">${CAT.map(c=>`<button class="opt ${c===cat?'sel':''}" data-cat="${c}">${c}</button>`).join('')}</div><div style="font-size:12.5px;color:var(--muted)">Buy as many as you like. Items place themselves in the right room. If there's no space they go into storage.</div><div class="acts">${list}</div>`;
+}
+function decPanel(){
+  const sel=decSelected();const placed=S.items.filter(i=>ITEMS[i.k].p>0||i.k==='mattress'||i.k==='chair');
+  const chip=(it,stored)=>`<button class="person ${DEC.sel===it.u?'on':''}" data-dsel="${it.u}" style="padding:6px 12px"><span>${esc(ITEMS[it.k].n)}${stored?'<small>In storage</small>':''}</span></button>`;
+  return `<div class="card" style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0">Decorate</h2>
+   <div class="people" style="flex-wrap:wrap">${placed.map(i=>chip(i,false)).join('')}${S.store.map(i=>chip(i,true)).join('')}</div>
+   ${sel?(S.store.includes(sel)?`<div class="row2"><button class="act go" data-dplace="${sel.u}"><span class="main"><span class="lbl">Place ${esc(ITEMS[sel.k].n)}</span></span></button><button class="act" data-dsell><span class="main"><span class="lbl">Sell for ${gbp(ITEMS[sel.k].p*.5)}</span></span></button></div>`
+     :`<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">${[['←',-1,0],['→',1,0],['↑',0,-1],['↓',0,1]].map(([l,x,y])=>`<button class="opt" data-dmove="${x},${y}" style="font-size:18px">${l}</button>`).join('')}</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px"><button class="opt" data-drot>Turn</button><button class="opt" data-dstore>Store</button><button class="opt" data-dsell>Sell ${gbp(ITEMS[sel.k].p*.5)}</button></div><div style="font-size:12px;color:var(--muted)">Arrows move along the floor. You can also tap the floor in the picture to move it there.</div>`)
+     :'<div style="font-size:13px;color:var(--muted)">Tap an item here or in the picture to select it.</div>'}</div>`;
 }
 function npcSheet(){
   const id=sheet.id,N=NPCS[id],n=S.npcs[id];const at=peopleAt(here()).includes(id);
@@ -2125,6 +2564,7 @@ function renderModal(){
   if(S.over){ov.innerHTML=`<div class="overlay"><div class="modal"><span class="kick">Day ${S.day}</span><h3>Evicted.</h3><p>Three missed rent payments and the landlord changed the locks. ${esc(S.name)} is now on a friend's sofa.</p><p>You sent ${ngn(S.sentHome)} home and tried ${Object.keys(S.dishes).length} dishes.</p><button class="go" data-restart>Start a new life</button></div></div>`;return}
   if(sheet?.type==='liveok'){ov.innerHTML=`<div class="overlay"><div class="modal"><span class="kick">Live chat</span><h3>Chat with real players</h3><p>Messages go to everyone in the same place in your city. They are public and kept for about 12 hours.</p><p><b>You must be 18 or over.</b> Be kind. Never share your address, phone number, or bank details. Mute anyone who bothers you.</p><button class="go" data-live-yes>I'm 18+ and I agree</button><button class="ghost" data-live-no>Not now</button></div></div>`;return}
   if(sheet?.type==='liveperson'){ov.innerHTML=`<div class="overlay"><div class="modal"><span class="kick">Player</span><h3>${esc(sheet.name)}</h3><p>A real person playing Japa Life near you.</p><button class="choice" data-mute>Mute ${esc(sheet.name)}</button><button class="ghost" data-live-no>Close</button></div></div>`;return}
+  if(sheet?.type==='movehome'){const h=CITIES[S.city].homes.find(x=>x.id===sheet.id),old=homeDef();const cost=h.rent*5+h.rent+80-(old.rent||0)*5;ov.innerHTML=`<div class="overlay"><div class="modal"><span class="kick">Moving home</span><h3>${esc(h.name)}</h3><p>New deposit ${gbp(h.rent*5)} + first week ${gbp(h.rent)} + van £80${old.rent?`, minus your old deposit back (${gbp(old.rent*5)})`:''}.</p><p><b>${cost>=0?'You pay':'You get back'} ${gbp(Math.abs(cost))} today.</b> Rent ${gbp(h.rent)} a week from Monday${homeBills(h)?`, plus ${gbp(homeBills(h))} a week council tax and bills`:''}.</p><button class="go" data-move-yes>Move in</button><button class="ghost" data-live-no>Not now</button></div></div>`;return}
   if(sheet?.type==='bizsell'){ov.innerHTML=`<div class="overlay"><div class="modal"><h3>Sell ${esc(S.biz.name)}?</h3><p>You'll get ${gbp(bizValue())} and the business closes for good.</p><button class="choice" data-bizsell-yes>Sell it</button><button class="ghost" data-live-no>Keep it</button></div></div>`;return}
   if(sheet?.type==='restart'){ov.innerHTML=`<div class="overlay"><div class="modal"><h3>Start a new life?</h3><p>${esc(S.name)}'s progress will be lost.</p><button class="choice" data-restart>Yes, start again</button><button class="choice" data-cancel>Keep playing</button></div></div>`;return}
   const e=S.queue.length&&EVENTS.find(x=>x.id===S.queue[0]);
@@ -2209,10 +2649,17 @@ document.addEventListener('click',e=>{
   if(d.mreal!==undefined){sheet.real=d.mreal==='1';CMV.cv=null;render();return}
   if(d.npc){openSheet({type:'npc',id:d.npc});return}
   if(d.npcact){doNpc(sheet.id,d.npcact);return}
-  if(d.furn){if(inHotel()){toast("You can't furnish a hotel room.");return}const f=FURN[d.furn];const shared=CITIES[S.city].homes.find(h=>h.id===S.home).shared;
-    if(shared&&S.furn.filter(k=>!FURN[k].start).length>=4){toast('No space left in a shared room.');return}
-    if(S.money<f.price){toast(`You need ${gbp(f.price)}.`);return}
-    spend(f.price,f.name);if(f.replaces)S.furn=S.furn.filter(k=>k!==f.replaces);S.furn.push(d.furn);log(`Bought: ${f.name}.`,'good');checkGoals();save();render();return}
+  if(d.furn){const I=ITEMS[d.furn];if(S.money<I.p){toast(`You need ${gbp(I.p)}.`);return}spend(I.p,I.n);const r=giveItem(d.furn);toast(r==='acc'?`${I.n} added.`:r==='placed'?`${I.n} placed in your home.`:`${I.n} went into storage. No space right now.`);log(`Bought: ${I.n}.`,'good');checkGoals();save();render();return}
+  if(d.cat){sheet.cat=d.cat;render();return}
+  if(t.hasAttribute('data-decorate')){DEC.on=!DEC.on;DEC.sel=null;render();return}
+  if(d.dsel){DEC.sel=+d.dsel;render();return}
+  if(d.dmove){const [x,y]=d.dmove.split(',').map(Number);decMove(x,y);save();render();return}
+  if(t.hasAttribute('data-drot')){decRotate();save();render();return}
+  if(t.hasAttribute('data-dstore')){decStore();save();render();return}
+  if(t.hasAttribute('data-dsell')){decSell();save();render();return}
+  if(d.dplace){decPlace(+d.dplace);save();render();return}
+  if(d.movehome){sheet={type:'movehome',id:d.movehome,back:sheet};render();return}
+  if(t.hasAttribute('data-move-yes')){moveHome(sheet.id);sheet=null;checkGoals();save();render();window.scrollTo({top:0});return}
   if(d.app!==undefined){sheet.app=d.app||null;sheet.thread=null;render();return}
   if(d.thread!==undefined){sheet.thread=d.thread||null;save();render();return}
   if(d.reply!==undefined){replyWA(sheet.thread,+d.reply);checkGoals();save();render();return}
@@ -2250,6 +2697,7 @@ document.addEventListener('click',e=>{
   if(t.hasAttribute('data-cancel')){sheet=null;render();return}
   if(t.hasAttribute('data-restart')){S=null;sheet=null;try{localStorage.removeItem(KEY)}catch(e){};$('overlay').innerHTML='';render();return}
 });
+document.addEventListener('pointerup',e=>{if(!DEC.on||e.target.id!=='cv'||S.at!=='home')return;const r=e.target.getBoundingClientRect();decTap((e.clientX-r.left)/r.width*360,(e.clientY-r.top)/r.height*230)});
 document.addEventListener('submit',e=>{if(e.target.matches('[data-liveform]')){e.preventDefault();const i=$('livein');liveSend(i.value);i.value=''}});
 document.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-pin]')){e.preventDefault();e.target.dispatchEvent(new MouseEvent('click',{bubbles:true}))}if(e.key==='Escape'&&sheet){closeSheet()}});
 document.addEventListener('input',e=>{if(e.target.id==='nm'&&C)C.name=e.target.value.slice(0,16)});
